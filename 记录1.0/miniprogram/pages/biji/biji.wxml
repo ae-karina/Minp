@@ -1,0 +1,53 @@
+<!--pages/biji/biji.wxml-->
+
+<view style="height: 200rpx;background-color: #e8989a;">
+<view style=" text-align: center;width: 260rpx;font-size: 45rpx;font-weight: bold;margin: 0 50rpx; background-color: #87CEEB;" bindtap="show">全部笔记</view>
+ <view style="margin: 0 50rpx;">{{lines.length}}条笔记</view>
+
+</view>
+ <!-- 搜索 -->
+  <search />
+
+<view class="container" style="margin-top: 50rpx;">
+    <!--添加新笔记-->
+        <view class="item addnote" bindtap="onNewItem">
+            <image class="add_bg" src="../../images/adds.png" style="width:120rpx;height:120rpx;" />
+        </view>
+
+
+    <!--笔记列表-->
+    <block wx:for="{{lines}}" wx:key="index">
+            <view class='item addnote' data-nid="{{item._id}}" bindtap="onEditItem">
+                <view class='content'>
+                    <view class='txt'>{{item.title}}</view>
+                </view>
+                <view class='bottom'>
+                    <view class='txt'>
+                        {{item.cTime}}
+                    </view>
+                </view>
+        </view>
+    </block>
+</view>
+
+
+
+
+<view style="position: absolute;top: 5%;left: 8%;z-index:9999" >
+
+
+
+<view class="tabs_title"  wx:if="{{show==true}}">
+<view  class="title_item {{tishi=='旅游'?'activer':''}}" bindtap="choooType" data-type="旅游">旅游</view>
+
+<view class="title_item {{tishi=='个人'?'activer':''}}" bindtap="choooType" data-type="个人">个人</view>
+
+<view  class="title_item {{tishi=='生活'?'activer':''}}" bindtap="choooType" data-type="生活">生活</view>
+
+<view class="title_item {{tishi=='工作'?'activer':''}}" bindtap="choooType" data-type="工作">工作</view>
+
+
+
+</view>
+
+</view>

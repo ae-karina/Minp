@@ -1,0 +1,156 @@
+/* pages/xuyao/xuyao.wxss */
+
+page {
+    background-color: rgb(242, 242, 244);
+    height: 100%;
+  }
+  
+  
+  
+  /* 主体内容 */
+  .littlemessage {
+    margin: 20rpx 20rpx 20rpx 20rpx;
+    width: 700rpx;
+  }
+  
+  .left {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .top-right {
+    margin-left: 10rpx;
+  }
+  
+  .huati {
+    color: #344CC6;
+    font-weight: 520;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+    margin-left: 14rpx;
+  }
+  
+  .allbottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 650rpx;
+    margin: 15rpx 0 10rpx 0;
+  }
+  
+  .allbottom-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .comment-box {
+    width: 600rpx;
+    margin-top: 20rpx;
+    background-color: rgb(246, 246, 246);
+    padding: 20rpx 0rpx 20rpx 20rpx;
+  }
+  
+  
+  
+  .message {
+    display: flex;
+    flex-direction: row;
+    margin: 6rpx;
+    background-color: white;
+    border-radius: 25rpx;
+   
+    width: 99%;
+   
+  }
+  
+  .face-img {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 10rpx;
+    margin-right: 15rpx;
+    background: -webkit-linear-gradient(top, #e7e7e7, #f0efed, #f0efed);
+  }
+  
+  /*右半部分*/
+  .right {
+    width: 580rpx;
+  }
+  
+  /* 昵称 */
+  .nickname {
+    font-size: 30rpx;
+    letter-spacing: 2rpx;
+    width: 400rpx;
+    display: inline-block;
+  }
+  
+  .message-text{
+    width: 96%;
+   margin-top: 5rpx;
+   margin-left: 10rpx;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 36rpx;
+    letter-spacing: 2rpx;
+    display: inline-block;
+    text-align: justify;
+  
+  }
+  
+  .time {
+    color: #7F7F7F;
+    font-size: 26rpx;
+    margin: 7rpx 20rpx 0 0;
+    text-align: center;
+  }
+  
+ 
+  .pub-comment {
+    background-color: white;
+    padding: 20rpx 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    
+  }
+  
+  .pub-left {
+    background-color: #fff;
+    color: #7F7F7F;
+    border-radius: 10rpx;
+    margin-right: 20rpx;
+  }
+  
+  .pub-input {
+    padding: 10rpx 20rpx;
+    width: 500rpx;
+    background-color: rgb(250, 251, 253);
+  }
+  
+  .pub-button {
+    color: #7F7F7F;
+    border: solid 1rpx #7F7F7F;
+    border-radius: 10rpx;
+    padding: 10rpx 20rpx;
+  }
+  
+  
+  
+  
+  
+  
+  .jiazaizhong {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .jiazaizhong image {
+    width: 50rpx;
+    height: 40rpx;
+    margin-top: 10rpx;
+  }
+  

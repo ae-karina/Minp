@@ -1,0 +1,107 @@
+/* pages/create/create.wxss */
+
+.container{
+  flex-flow:column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+  /* background-color: aquamarine; */
+}
+.title{
+  margin: 15rpx 5%;
+  width: 90%;
+  text-align: center;
+  height: 60rpx;
+  font-size: 38rpx;
+  border-bottom: 1px solid #d3d3d3;
+  /* background-color: red; */
+}
+.row{
+  flex: 1;
+  display: flex;
+  width: 90%;
+  height: 60%;
+  margin: 0 5%;
+  overflow: hidden;
+  border: 2rpx solid #666;
+  /* background-color: yellow; */
+}
+.row text{
+  flex: 1;
+  width: 100%;
+  height: 60%;
+  font-size: 16px;
+  line-height: 26px;
+  color: #666;
+  
+ 
+}
+
+
+.picker{
+  flex: 1 1 auto;
+  height: 100%;
+  padding-left: 35rpx;
+  border-top:1rpx solid #f1f1f1;
+}
+.img-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 30rpx 30rpx;
+}
+.one-img {
+  position: relative;
+  margin: 4rpx 8rpx;
+}
+.img-choose {
+  width: 200rpx;
+  height: 200rpx;
+  border: 3px solid #ffffff;
+  background-color: #fafafa;
+}
+.close-img {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 4rpx;
+  top: 4rpx;
+}
+.choose-localtion {
+  
+  margin: 80rpx 40rpx;
+  font-size: 36rpx;
+  color: rgb(90, 90, 90);
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid rgb(221, 220, 220);
+}
+
+
+/* .date{
+  padding: 5rpx 0; 
+  background-color: darkblue;
+} */
+.bottom{
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-flow:row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.bottom .btn{
+  flex: 1;
+  line-height: 2;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin: 30rpx 30rpx;
+}
+.btn.success{
+  background: #1aad19;
+  color: #fff;
+}
+.btn.del{
+  background: #e64340;
+  color: #fff;
+}

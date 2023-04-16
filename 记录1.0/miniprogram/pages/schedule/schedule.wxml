@@ -1,0 +1,47 @@
+<!--pages/schedule/schedule.wxml-->
+<view class="container-fluid">
+     <calendar 
+    calendar-style="calendar"  
+    header-style="header" 
+    board-style="board" 
+    weeks-type="full-en" 
+    days-color='{{dayStyle}}'
+    binddayClick="dayClick"
+    binddateChange="dateChange"
+    bindprevMonth="prev"
+    bindnextMonth="next"
+    />
+  
+<view>
+    <view class="note">今日日程</view>
+    <view wx:for="{{note}}" wx:key="index"   >
+        <view wx:if="{{item.status==0}}" class="mynote" bindtap="goToqcxxy"  data-id="{{item._id}}">
+       
+        {{index+1}}.{{item.note}}
+
+        <view style="margin-left: 70%;">{{item.year}}-{{item.month}}-{{item.day}}</view>
+        
+        
+        </view>
+
+
+         <view class="mynoter" wx:if="{{item.status==1}}" bindtap="goToqcxxy"  data-id="{{item._id}}"> 
+        <view >
+        {{index+1}}.{{item.note}}</view>
+         <view style="margin-left: 70%;">{{item.year}}-{{item.month}}-{{item.day}}</view>
+           </view>
+
+          
+ 
+
+    </view>
+</view>
+<!-- 添加日程 -->
+  <image class="add" bindtap="add2" src="../../images/add.png"></image>
+             
+     
+        
+   
+    
+    
+</view>

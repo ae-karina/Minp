@@ -1,0 +1,71 @@
+<!--pages/my/my.wxml-->
+
+
+
+
+<form bindsubmit="submit"> 
+<view class="user">
+
+
+<view class="user-info">
+<image wx:if="{{judgedeng}}" src="{{avatarUrl}}"/>
+
+<button  wx:if="{{!judgedeng}}" class="avatar-wrapper" open-type="chooseAvatar" 
+bind:chooseavatar="onChooseAvatar"  >
+<image class="avatar" src="{{avatarUrl}}"   ></image>
+</button> 
+
+
+<view class="user-view">  
+
+ <view wx:if="{{judgedeng}}">{{nick}}</view>
+ 
+ </view>
+
+
+</view>
+
+<input name="nick" wx:if="{{!judgedeng}}" type="nickname" class="weui-input" placeholder="请输入昵称"/>
+
+<button wx:if="{{!judgedeng}}"  form-type="submit" type="primary" >登录</button>
+</view>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="func" wx:if="{{judgedeng}}">
+    <view class="mecontent" bindtap='shequ'>
+      <image src="../../images/fen.png" mode="aspectFit" style="width:120rpx;height:120rpx;"></image>
+      <view class="mefuntion" >社区生活</view>
+    </view>
+
+    <view class="mecontent" bindtap='meidea'>
+      <image src="../../images/fan.png" mode="aspectFit" style="width:120rpx;height:120rpx;"></image>
+      <view class="mefuntion">意见反馈</view>
+    </view>
+
+    <view class="mecontent" bindtap='xuyao'>
+      <image src="../../images/guan.png" mode="aspectFit" style="width:120rpx;height:120rpx;"></image>
+      <view class="mefuntion">需要帮助</view>
+    </view>
+    <view class="mecontent" bindtap='guan'>
+      <image src="../../images/xi.png" mode="aspectFit" style="width:120rpx;height:120rpx;"></image>
+      <view class="mefuntion">用户管理</view>
+    </view>
+  </view>

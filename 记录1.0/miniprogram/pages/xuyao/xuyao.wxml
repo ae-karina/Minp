@@ -1,0 +1,46 @@
+<!--pages/xuyao/xuyao.wxml-->
+
+<view >
+    <block wx:for="{{dataList}}"  wx:key="index">
+  <view class="message">
+   
+  <view class="littlemessage">
+
+   <view class="time">{{item.time}}</view>
+    <view class="left" >
+      <image class="face-img"  src="{{item.img}}"></image>
+      <view class="top-right">
+      
+     
+         <text  class="message-text">{{item.content}}
+      </text>
+    </view>
+    </view>
+   
+  </view>
+  
+</view>
+</block>
+  
+  </view>
+
+
+<!-- 底部 -->
+<view style="height:200rpx;"></view>
+<view class="pub-comment">
+  <view class="pub-left">
+    <input class="pub-input"   bindinput="getInputValue" placeholder="输入内容" value="{{speak}}" ></input>
+  </view>
+  <view class="pub-button" bindtap="add" >发送</view>
+</view>
+
+
+
+<!-- 下拉刷新 -->
+
+
+<view class="jiazai" wx:if="{{jiazai}}">
+<view class="jiazaizhong">
+<image src="/images/loading.gif"></image></view>
+</view>
+

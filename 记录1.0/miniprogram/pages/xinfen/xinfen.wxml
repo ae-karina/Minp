@@ -1,0 +1,78 @@
+
+
+<view class="add-page">
+
+<form  bindsubmit="submit" >
+
+
+
+<view class="address-block">
+
+
+
+<view class="address-infop">
+<image class="im" src="/images/xie.png"></image>
+<view>反馈信息</view>
+
+</view>
+        
+
+
+<view class="address-info address-detail">
+
+
+<view class="address-content"> 
+
+<textarea class="address-detail-text"  name="contents" placeholder="请填写您的反馈,管理会及时与您联系"  maxlength="150" />
+
+</view>
+
+</view>
+
+<view style="display: flex;margin: 18rpx 35rpx;font-size: 43rpx;"> 
+   <image src="/images/tu.png" class="im"></image>
+    <view>选择图片</view>
+</view>
+<view class="img-wrap">
+    <block wx:for="{{images}}" wx:key="index">
+      <view class="one-img">
+        <image src="{{item}}" class="img-choose" mode="aspectFill"></image>
+        <image src="/images/shangchu.png" class="close-img" bindtap="deleteimage" data-src="{{item}}"></image>
+      </view>
+    </block>
+    <view class="one-img" bindtap="upimages" wx:if="{{images.length < 3}}">
+      <image src="/images/zhaopian.png" class="img-choose"></image>
+    </view>
+</view>
+
+
+<view class="choose-localtion">
+  
+  <view style="display: flex;font-size: 43rpx;margin-bottom: 20rpx;"> 
+ <image src="/images/fl.png" class="im"></image>
+  <view>反馈类型</view>
+  </view>
+
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      点选择类型：{{array[index]}}
+    </view>
+  </picker>
+</view>
+
+</view>
+
+
+  
+
+
+
+<view class="bottom-btn">
+
+<button class="btn-primary" type="primary" form-type="submit">保存</button>
+
+</view>
+
+</form> 
+
+</view>

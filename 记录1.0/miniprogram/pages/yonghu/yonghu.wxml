@@ -1,0 +1,11 @@
+<!--pages/yonghu/yonghu.wxml-->
+<view style="text-align: center;">用户管理</view>
+
+<view>
+<view wx:for="{{list}}" wx:key="index" style="display: flex;justify-content:space-around;">
+<view>
+<image src="{{item.avatarUrl}}" style="height: 100rpx;width: 100rpx;"></image>
+</view>
+<view>{{item.nick}}</view>
+</view>
+</view>

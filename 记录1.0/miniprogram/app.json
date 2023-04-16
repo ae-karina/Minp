@@ -1,0 +1,66 @@
+{
+    "pages": [
+        "pages/schedule/schedule",
+        "pages/index/index",
+        "pages/my/my",
+        "pages/jizhang/jizhang",
+        "pages/biji/biji",
+        "pages/add/add",
+        "pages/create/create",
+        "pages/shequ/shequ",
+        "pages/detail/detail",
+        "pages/edit/edit",
+        "pages/xinfen/xinfen",
+        "pages/add2/add2",
+        "pages/detail1/detail",
+        "pages/biji2/biji2",
+        "pages/xuyao/xuyao",
+        "pages/yonghu/yonghu"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#e8989a",
+        "navigationBarTitleText": "我们的小程序",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#e8989a"
+    },
+    "tabBar": {
+        "color": "#000000",
+        "selectedColor": "#e8989a",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/schedule/schedule",
+                "text": "日程",
+                "iconPath": "images/r01.png",
+                "selectedIconPath": "images/r02.png"
+            },
+            {
+                "pagePath": "pages/biji/biji",
+                "text": "笔记",
+                "iconPath": "images/bi01.png",
+                "selectedIconPath": "images/bi02.png"
+            },
+            {
+                "pagePath": "pages/jizhang/jizhang",
+                "text": "数据",
+                "iconPath": "images/ji01.png",
+                "selectedIconPath": "images/ji02.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/my.png",
+                "selectedIconPath": "images/my02.png"
+            }
+        ]
+    },
+    "plugins": {
+        "calendar": {
+            "version": "1.1.3",
+            "provider": "wx92c68dae5a8bb046"
+        }
+    },
+    "sitemapLocation": "sitemap.json",
+    "style": "v2"
+}

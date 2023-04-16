@@ -1,0 +1,43 @@
+
+.header{
+    font-size:medium;
+    padding: 30rpx;
+    
+}
+.board{
+    padding: 10rpx;
+    color: #e8989a;
+}
+
+.modal{
+    color:#e8989a;
+}
+
+.note{
+    padding: 10rpx;
+    background-color:#f0bebe;
+    width: 20%;
+    margin:0 auto
+}
+.mynote{
+    padding: 30rpx;
+    background-color:rgb(210, 227, 241);
+    margin: 15rpx;
+}
+
+.mynoter{
+    padding: 30rpx;
+    background-color:rgb(224, 233, 182);
+    margin: 15rpx;
+    text-decoration: line-through;
+    
+    
+  
+  
+    
+}
+
+
+
+
+

@@ -1,0 +1,46 @@
+
+
+
+<form bindsubmit="submitform">
+<block>
+  <view class="pub-wrap">
+    <view class="pub-text"></view>
+  </view>
+  <view class="input-wrap">
+    <textarea nane="content"  placeholder="描述..." class="input-text" maxlength="2000" name="contain"></textarea>
+  </view>
+ <view class="img-wrap">
+    <block wx:for="{{images}}" wx:key="index">
+      <view class="one-img">
+        <image src="{{item}}" class="img-choose" mode="aspectFill"></image>
+        <image src="/images/shangchu.png" class="close-img" bindtap="deleteimage" data-src="{{item}}"></image>
+      </view>
+    </block>
+    <view class="one-img" bindtap="upimages" wx:if="{{images.length < 3}}">
+      <image src="/images/zhaopian.png" class="img-choose"></image>
+    </view>
+  </view>
+
+  <view class="choose-localtion">
+    请选择话题
+    <view class="topic"></view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        当前选择：{{array[index]}}
+      </view>
+    </picker>
+  </view>
+ 
+
+  <van-popup  position="bottom" custom-style="height: 20%;" round bind:close="onClose">
+  
+    <view class="bigbox">
+      <button   form-type="submit" style="width: 200rpx;"><image src="/images/publish.png" style="height: 110rpx;width: 110rpx;"></image></button>
+    </view>
+  </van-popup>
+
+
+
+</block>
+
+</form>

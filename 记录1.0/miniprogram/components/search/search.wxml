@@ -1,0 +1,37 @@
+<!--components/search/search.wxml-->
+
+
+<view class="{{isFocus ? 'containerFocus' : 'container'}}">
+
+<view class="search">
+<view class="search-text">
+<text></text>
+<input type="text" placeholder="搜索"  bindfocus="handleFocus" bindconfirm="handleConfirm" value="{{value}}"  confirm-type="search"/>
+</view>
+<view wx:if="{{isFocus}}" class="search-cancel" bindtap="handleCancel">取消</view>
+</view>
+<view class="search-history">
+<text>历史记录</text>
+<text  bindtap="handleHistoryDelete"  class="iconfont iconshanchu">删除</text>
+</view>
+<view class="search-history-btn">
+<text bindtap="handleHistoryItemDel" data-text="{{item}}"  wx:for="{{historyList}}" wx:key="index">{{item}}</text>
+</view>
+<navigator wx:for="{{searchList}}" wx:key="index" url="{{'/pages/edit/edit?edkey='+item._id}}" open-type="navigate">
+<view class ="searchList-item">
+
+<image src="{{item.img}}"></image>
+
+
+<view>
+
+<view class="content">{{item.title}}</view>
+<view class="content">{{item.content}}</view>
+</view>
+
+
+
+
+</view>
+</navigator>
+</view>

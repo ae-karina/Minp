@@ -1,0 +1,44 @@
+/* pages/edit/edit.wxss */
+@import"../create/create.wxss";
+
+
+.picker{
+  flex: 1 1 auto;
+  height: 100%;
+  padding-left: 35rpx;
+  border-top:1rpx solid #f1f1f1;
+}
+
+
+.img-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 30rpx 30rpx;
+  }
+  .one-img {
+    position: relative;
+    margin: 4rpx 8rpx;
+  }
+  .img-choose {
+    width: 200rpx;
+    height: 200rpx;
+    border: 3px solid #ffffff;
+    background-color: #fafafa;
+  }
+  .close-img {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 4rpx;
+    top: 4rpx;
+  }
+  .choose-localtion {
+    
+    margin: 80rpx 40rpx;
+    font-size: 36rpx;
+    color: rgb(90, 90, 90);
+    padding-bottom: 30rpx;
+    border-bottom: 2rpx solid rgb(221, 220, 220);
+  }
+  
