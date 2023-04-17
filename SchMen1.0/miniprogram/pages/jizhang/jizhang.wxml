@@ -1,7 +1,7 @@
 <!--pages/jizhang/jizhang.wxml-->
 <view class="page">
   <view class="user-card">
-  
+
     <view class="user-card__links">
       <view class="user-card__linkItem" >
         <label class="user-card__linkLabel">进行中</label>
@@ -13,23 +13,30 @@
       </view>
     </view>
   </view>
+
+
   <view class="charts-card">
     <text class="charts-card__header">任务完成率</text>
     <canvas class="charts-card__body" canvas-id="chartsA"></canvas>
   </view>
- 
+
+  <view class="charts-card">
+    <text class="charts-card__header">日程类型占比</text>
+    <canvas canvas-id="pieCanvas"></canvas>
+  </view>
+
+<!-- <canvas canvas-id="linCanvas"></canvas> -->
+  <view class="charts-card">
+    <text class="charts-card__header">日程类型效率</text>
+    <canvas canvas-id="columnCanvas"></canvas>
+  </view>
+
 </view>
 
 
 
-<view style="text-align: center;" >笔记类型数据图</view>
-<canvas canvas-id="pieCanvas"></canvas>
-<!-- <canvas canvas-id="linCanvas"></canvas> -->
-<view style="text-align: center;" >日程类型数据图</view>
-<canvas canvas-id="columnCanvas"></canvas>
 
-
-<view style="margin-top: 10%;text-align: center;" >底部</view>
+<!-- <view style="margin-top: 10%;text-align: center;" >底部</view> -->
 
 
 
