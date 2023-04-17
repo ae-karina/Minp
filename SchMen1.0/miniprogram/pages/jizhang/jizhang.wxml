@@ -22,7 +22,7 @@
 
   <view class="charts-card">
     <text class="charts-card__header">日程类型占比</text>
-    <canvas canvas-id="pieCanvas"></canvas>
+    <canvas  canvas-id="pieCanvas"></canvas>
   </view>
 
 <!-- <canvas canvas-id="linCanvas"></canvas> -->
