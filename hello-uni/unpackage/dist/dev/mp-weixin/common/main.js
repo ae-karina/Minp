@@ -128,6 +128,9 @@ var _default = {
   },
   onHide: function onHide() {
     console.log('App Hide');
+  },
+  onError: function onError(err) {
+    console.log('出现异常了', err);
   }
 };
 exports.default = _default;

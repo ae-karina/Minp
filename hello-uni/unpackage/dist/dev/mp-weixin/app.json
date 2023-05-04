@@ -1,7 +1,11 @@
 {
   "pages": [
-    "pages/message/message",
     "pages/index/index",
+    "pages/navigator/navigator",
+    "pages/message/message",
+    "pages/list/list",
+    "pages/home/home",
+    "pages/uni-style/uni-style",
     "pages/contact/contact",
     "pages/detail/detail"
   ],
@@ -19,7 +23,6 @@
     "selectedColor": "#B3EE3A",
     "backgroundColor": "#fff",
     "borderStyle": "white",
-    "position": "top",
     "list": [
       {
         "text": "首页",
