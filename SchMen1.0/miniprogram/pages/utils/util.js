@@ -13,11 +13,11 @@ const formatTime = (date, hasTime) => {
     return result
   }
   
-  
+  // utils文件夹: 存放全局的一些.js文件,公共用到的一些事件处理代码文件可以放到该文件夹下,用于全局调用
   
   const formatNumber = n => {
     n = n.toString()
-    return n[1] ? n : '0' + n
+    return n[1] ? n : '0' + n //处理月份和天的日期字符串，就是个位数前面加0的截取处理，或者两位数的截取处理
   }
   
   const uuid = () => {

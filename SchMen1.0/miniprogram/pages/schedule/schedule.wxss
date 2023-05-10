@@ -1,8 +1,7 @@
 
 .header{
-    font-size:medium;
     padding: 30rpx;
-    
+    font-size:medium;
 }
 .board{
     padding: 10rpx;
@@ -14,27 +13,27 @@
 }
 
 .note{
+    width: 20%;
+    margin:0 auto;
     padding: 10rpx;
     background-color:#f0bebe;
-    width: 20%;
-    margin:0 auto
+    text-align: center;
+    border-radius: 5px;
 }
 .mynote{
-    padding: 30rpx;
-    background-color:rgb(210, 227, 241);
     margin: 15rpx;
+    padding: 30rpx;
+    background-color:rgba(210, 227, 241,.6);
+    border-radius: 25px;
 }
 
 .mynoter{
-    padding: 30rpx;
-    background-color:rgb(224, 233, 182);
     margin: 15rpx;
+    padding: 30rpx;
+    background-color:rgba(224, 233, 182,.6);
+    color: grey;
     text-decoration: line-through;
-    
-    
-  
-  
-    
+    border-radius: 25px;
 }
 
 

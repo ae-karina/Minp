@@ -1,88 +1,102 @@
 /* pages/add2/add2.wxss */
+.add-page{
+  width: 100%;
+  font-size: 40rpx;
+}
 
-
-
-  .add-page{
-    width: 100%;
-    font-size: 40rpx;
-    
-  }
-  .address-block{
-    padding-left: 30rpx;
-    padding-right: 51rpx;
-    background-color: #ffffff;
-  }
-  .address-info{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 98rpx;
-    line-height: 98rpx;
-    border-bottom: 1rpx solid #f1f1f1;
-  }
-  .address-info:last-child{
-    border-bottom:none;
-  }
-  .address-info input{
-    height: 100%;
-  }
-  .address-title{
-    flex: 0 0 120rpx;
-    text-align:justify;
-  }
-  .address-title:after{
-    display:inline-block;
-    content:'';
-    width:100%;
-  }
-  .address-content{
-    flex: 1 1 auto;
-    height: 100%;
-    padding-left: 35rpx;
-  }
-  .address-region{
-    display: inline-flex;
-    justify-content: space-between;
-    position: relative;
-  }
-  .address-region-name{
-    width: 450rpx;
-  }
-  .address-region .arrow-right{
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 40rpx;
-  }
-  .address-detail{
-    height: 226rpx;
-    padding-top: 40rpx;
-    line-height: 41rpx;
-  }
-  .address-detail-text{
-    width: 100%;
-    height: 100%;
-  }
-   
- .bottom-btn{
-     margin-top: 60rpx;
- }
-
-
-
- 
- 
 .header{
-    font-size:medium;
-    padding: 30rpx;
-    
-}
-.board{
-    padding: 10rpx;
-    color: #e8989a;
+  font-size:medium;
+  padding: 30rpx;
 }
 
-.modal{
+.board{
+  padding: 10rpx;
+  color: #e8989a;
+}
+
+.address-block{
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  /* background-color: #99ff99; */
+}
+.address-info{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  /* border-bottom: 3rpx solid black; */
+  /* background-color: #ccffff; */
+}
+
+.address-title{
+  flex: 0 0 120rpx;
+  /* 文字平铺，占据整个框框 */
+  text-align:justify;
+  /* background-color: red; */
+}
+/* 后面的字体也可以平埔 */
+.address-title:after{
+  content:'';
+  display:inline-block;
+  width:100%;
+}
+
+.address-content{
+  flex: 1 1 auto;
+  height: 100%;
+  padding-left: 35rpx;
+}
+
+.address-content input{
+  height: 100%;
+  /* background-color: #ff99ff; */
+}
+  
+.picker{
+  margin-top: 10px;
+}
+
+.bottom-btn{
+  margin-top: 60rpx;
+}
+ 
+.btn-primary{
+  background-color: rgba(198, 113, 113,.5);
+  border-radius: 25px;
+  color: #fff;
+}
+
+/* .address-info:last-child{
+  border-bottom:none;
+} */
+
+/* .address-region{
+  display: inline-flex;
+  justify-content: space-between;
+  position: relative;
+}
+.address-region-name{
+  width: 450rpx;
+} */
+/* .address-region .arrow-right{
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 40rpx;
+} */
+/* .address-detail{
+  height: 226rpx;
+  padding-top: 40rpx;
+  line-height: 41rpx;
+}
+.address-detail-text{
+  width: 100%;
+  height: 100%;
+} */
+
+/* .modal{
     color:#e8989a;
 }
 
@@ -96,4 +110,4 @@
     padding: 30rpx;
     background-color:rgb(210, 227, 241);
     margin: 15rpx;
-}
+} */

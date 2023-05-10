@@ -1,108 +1,45 @@
-<!--pages/detail1/detail.wxml-->
-
-
-
-
-<view class="add-page" >
-<form  bindsubmit="submit" >
-
-
-<view class="address-block">
-
-<view class="address-info">
-
-<view class="address-title" >日期</view>:
-
-<view class="address-content">
-<view>{{list.year}}-{{list.month}}-{{list.day}}</view>
+<!-- pages/detail1/detail.wxml -->
+<view class="add-page">
+  <form bindsubmit="submit">
+    <view class="address-block">
+      <view class="address-info">
+        <view class="address-title">日期</view>
+        :
+        <view class="address-content">
+          <view>{{list.year}}-{{list.month}}-{{list.day}}</view>
+        </view>
+      </view>
+      <view class="address-info">
+        <view class="address-title">待办</view>
+        :
+        <view class="address-content">
+          <input name="daiban" value="{{list.note}}" placeholder="待办事情" />
+        </view>
+      </view>
+      <view class="address-info">
+        <view class="address-title">备注</view>
+        :
+        <view class="address-content">
+          <input name="beizhu" value="{{list.beizhu}}" placeholder="备注" />
+        </view>
+      </view>
+      <view class="address-info">
+        <view class="address-title">类型</view>
+        :
+        <view class="address-content">
+          <view>{{list.leix}}</view>
+        </view>
+      </view>
+      <view class="address-info">
+        <view class="address-title1" bindtap="del">点击删除</view>
+      </view>
+      <view class="address-info">
+        <view bindtap="wan" wx:if="{{list.status==0}}" class="address-title1">点击完成</view>
+        <view wx:if="{{list.status==1}}" class="address-title1">已完成</view>
+      </view>
+    </view>
+    <view class="bottom-btn">
+      <button class="btn-primary" form-type="submit">修改信息</button>
+    </view>
+  </form>
 </view>
-
-</view>
-
-
-
-
-
-<view class="address-info">
-
-<view class="address-title">待办</view>:
-
-<view class="address-content">
-    
- 
-<input name="daiban" value="{{list.note}}"  placeholder="待办事情"  />
-
-</view>
-
-</view>
-
-
-
-
-<view class="address-info">
-
-<view class="address-title">备注</view>:
-
-<view class="address-content">
-   
-<input name="beizhu"  value="{{list.beizhu}}"  placeholder="备注"/>
-
-
-</view>
-
-</view>
-
-
-
-<view class="address-info">
-
-<view class="address-title">类型</view>:
-
-<view class="address-content">
-   
-
-<view>{{list.leix}}</view>
-
-</view>
-
-</view>
-
-
-
-
-
-<view class="address-info">
-
-<view class="address-title1"  bindtap="del">点击删除</view>
-
-
-
-</view>
-
-
-
-<view class="address-info" >
-
-<view bindtap="wan" wx:if="{{list.status==0}}" class="address-title1">点击完成</view>
-
-<view  wx:if="{{list.status==1}}" class="address-title1">已完成</view>
-
-
-</view>
-
-
-
-
-
-</view>
-<view class="bottom-btn">
-
-<button class="btn-primary" type="primary" form-type="submit" >修改信息</button>
-
-</view>
-
-
-</form>
-
-</view>
-

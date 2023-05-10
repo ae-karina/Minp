@@ -1,45 +1,61 @@
 /* pages/detail1/detail.wxss */
 
-
 .add-page{
     width: 100%;
     font-size: 40rpx;
-    
-  }
-  .address-block{
-    padding-left: 30rpx;
-    padding-right: 51rpx;
-    background-color: #ffffff;
-  }
-  .address-info{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 98rpx;
-    line-height: 98rpx;
-    border-bottom: 1rpx solid #f1f1f1;
-  }
-  .address-info:last-child{
-    border-bottom:none;
-  }
-  .address-info input{
-    height: 100%;
-  }
-  .address-title{
-    flex: 0 0 120rpx;
-    text-align:justify;
-  }
-  .address-title:after{
-    display:inline-block;
-    content:'';
-    width:100%;
-  }
-  .address-content{
-    flex: 1 1 auto;
-    height: 100%;
-    padding-left: 35rpx;
-  }
-  .address-region{
+}
+
+.address-block{
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  background-color: #ffffff;
+}
+.address-info{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  border-bottom: 3rpx solid #f1f1f1;
+}
+.address-info:last-child{
+  border-bottom:none;
+}
+.address-info input{
+  height: 100%;
+}
+.address-title{
+  flex: 0 0 120rpx;
+  text-align:justify;
+}
+.address-title:after{
+  content:'';
+  display:inline-block;
+  width:100%;
+}
+.address-content{
+  flex: 1 1 auto;
+  height: 100%;
+  padding-left: 35rpx;
+}
+
+.bottom-btn{
+  margin-top: 60rpx;
+}
+
+.btn-primary{
+  background-color: rgba(198, 113, 113,.5);
+  border-radius: 25px;
+  color: #fff;
+}
+
+
+.address-title1{
+  flex: 0 0 160rpx;
+  text-align:justify;
+}
+
+  /* .address-region{
     display: inline-flex;
     justify-content: space-between;
     position: relative;
@@ -61,18 +77,8 @@
   .address-detail-text{
     width: 100%;
     height: 100%;
-  }
+  } */
    
- .bottom-btn{
-     margin-top: 60rpx;
- }
-
-
- .address-title1{
-    flex: 0 0 160rpx;
-    text-align:justify;
-  }
-
 
 
  

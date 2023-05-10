@@ -20,7 +20,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#e8989a",
-        "navigationBarTitleText": "我们的小程序",
+        "navigationBarTitleText": "日程管理",
         "navigationBarTextStyle": "black",
         "backgroundColor": "#e8989a"
     },
@@ -44,14 +44,14 @@
             {
                 "pagePath": "pages/jizhang/jizhang",
                 "text": "数据",
-                "iconPath": "images/ji01.png",
-                "selectedIconPath": "images/ji02.png"
+                "iconPath": "images/sj.png",
+                "selectedIconPath": "images/sj01.png"
             },
             {
                 "pagePath": "pages/my/my",
                 "text": "我的",
                 "iconPath": "images/my.png",
-                "selectedIconPath": "images/my02.png"
+                "selectedIconPath": "images/my01.png"
             }
         ]
     },
