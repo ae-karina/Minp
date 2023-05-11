@@ -1,20 +1,9 @@
 <!-- pages/add2/add2.wxml -->
 <view class="container-fluid">
-  <calendar 
-  calendar-style="calendar" 
-  header-style="header" 
-  board-style="board" 
-  weeks-type="full-en" 
-  days-color='{{dayStyle}}' 
-  binddayClick="dayClick" 
-  binddateChange="dateChange" 
-  bindprevMonth="prev" 
-  bindnextMonth="next" />
+  <calendar calendar-style="calendar" header-style="header" board-style="board" weeks-type="full-en" days-color='{{dayStyle}}' binddayClick="dayClick" binddateChange="dateChange" bindprevMonth="prev" bindnextMonth="next" />
 </view>
-
-
 <view class="add-page">
-<!-- 携带form的数据触发submit事件 -->
+  <!-- 携带form的数据触发submit事件 -->
   <form bindsubmit="submit">
     <view class="address-block">
       <view class="address-info">

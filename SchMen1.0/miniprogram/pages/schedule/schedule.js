@@ -29,7 +29,7 @@ Page({
         year:''
     },
 
-    //单击日期变色 添加日程
+    //单击日期变色 添加日程  显示相应日期的日程
     dayClick:function(e){
         var year=e.detail.year
         var month=e.detail.month
@@ -49,7 +49,7 @@ Page({
         var that= this
         wx.cloud.database().collection("notes").orderBy('time','desc').where({
             day:day,
-            month:month,
+            month:month,//点中哪个日期就显示哪个日期
             year:year
         }).get({  //获取集合数据，或获取根据查询条件筛选后的集合数据
             success(res){       
@@ -106,6 +106,8 @@ Page({
             url: '/pages/add2/add2',
         })
     },
+    // 具体数据是来自event，currentTarget
+    // 写好跳转页面的跳转方法和url，实现带参数跳转
     goToqcxxy(e) {
         let id=e.currentTarget.dataset.id
         console.log(id,"444")

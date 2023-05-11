@@ -1,4 +1,7 @@
 // pages/detail1/detail.js
+import util from '../utils/util'
+import utill from '../utils/utill'
+
 const db = wx.cloud.database();
 Page({
 
@@ -7,20 +10,28 @@ Page({
      */
   data: {
       list:[],
-      qid:''
+      qid:'',
+      inputbiaoqian:'用餐',
+      index: 0,
+      array: ['用餐','运动','学习','工作','休闲','家务'],
+      date: util.formatTime(new Date()),  
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  // 列表界面带参数id跳转成功
   onLoad(options) {
     console.log(options);
     const qid = options.id;
     this.setData({
       qid:qid
     })
+    
     console.log(this.data.qid);
     this.list(this.data.qid);
+
   },
 
 
@@ -31,9 +42,11 @@ Page({
     })
     .get()
     .then(res => { 
+      // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
         console.log(res.data)
         that.setData({
-          list:res.data[0]
+          list:res.data[0],
+          index:that.data.array.indexOf(res.data[0].leix)
         })
     })
     .catch(err => {
@@ -76,6 +89,18 @@ Page({
 
     },
 
+
+  bindPickerChange: function(e) {
+    // console.log(e.detail)
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+      this.setData({
+        index: e.detail.value,
+        inputbiaoqian:this.data.array[e.detail.value]
+      })
+    console.log(this.data.inputbiaoqian)
+  },
+   
+
    //立即发布
    submit(e){
     let that=this
@@ -87,7 +112,10 @@ Page({
           db.collection('notes').doc(that.data.qid).update({
             data:{  
               note:e.detail.value.daiban,
-              beizhu:e.detail.value.beizhu,             
+              beizhu:e.detail.value.beizhu,
+              leix:that.data.inputbiaoqian,
+              date:that.data.date,
+              time:utill.formatSD(new Date())
             }
           }).then(res=>{
                 wx.showToast({
@@ -166,18 +194,41 @@ Page({
     .then(res=>{
       if(res.confirm==true){
         wx.cloud.database().collection('notes').doc(qid).update({
-    data:{
-    status:1
-    }
+          data:{
+            status:1
+          }
+        })
+        .then(result=>{
+          this.list(this.data.qid)
+          wx.showToast({
+            title:'成功完成任务',
+          })
+        })
+      }
     })
-    .then(result=>{
-    this.list(this.data.qid)
-    wx.showToast({
-    title:'成功完成任务',
+   },
+
+   cen(){
+    let qid=this.data.qid
+    wx.showModal({
+      title:'提示',
+      content:'确定取消已完成？',
+      confirmText:'确定'
     })
-    
-    })
-    }
+    .then(res=>{
+      if(res.confirm==true){
+        wx.cloud.database().collection('notes').doc(qid).update({
+          data:{
+            status:0
+          }
+        })
+        .then(result=>{
+          this.list(this.data.qid)
+          wx.showToast({
+            title:'已取消',
+          })
+        })
+      }
     })
    } 
 })

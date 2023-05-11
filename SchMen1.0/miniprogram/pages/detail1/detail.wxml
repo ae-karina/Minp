@@ -23,23 +23,15 @@
           <input name="beizhu" value="{{list.beizhu}}" placeholder="备注" />
         </view>
       </view>
-      <view class="address-info">
-        <view class="address-title">类型</view>
-        :
-        <view class="address-content">
-          <view>{{list.leix}}</view>
-        </view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">类 型:{{array[index]}}</view>
+      </picker>
+      <view class="combut">
+        <view class="scm" bindtap="wan" wx:if="{{list.status==0}}">点击完成</view>
+        <view class="scm" bindtap="cen" wx:if="{{list.status==1}}">已完成</view>
+        <button class="btn-primary" form-type="submit">修改信息</button>
+        <view class="scm1" bindtap="del">点击删除</view>
       </view>
-      <view class="address-info">
-        <view class="address-title1" bindtap="del">点击删除</view>
-      </view>
-      <view class="address-info">
-        <view bindtap="wan" wx:if="{{list.status==0}}" class="address-title1">点击完成</view>
-        <view wx:if="{{list.status==1}}" class="address-title1">已完成</view>
-      </view>
-    </view>
-    <view class="bottom-btn">
-      <button class="btn-primary" form-type="submit">修改信息</button>
     </view>
   </form>
 </view>

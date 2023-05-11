@@ -4,10 +4,13 @@
   <view>
     <view class="note">今日日程</view>
     <view wx:for="{{note}}" wx:key="index">
+      <!-- 知道要跳转列表图书中的哪个详情页？要在云开发数据库books里面添加特定id字段 -->
+      <!-- 设置一个值，data-id="{{item.id}} -->
       <view wx:if="{{item.status==0}}" class="mynote" bindtap="goToqcxxy" data-id="{{item._id}}">
         {{index+1}}.{{item.note}}
         <view style="margin-left: 70%;">{{item.year}}-{{item.month}}-{{item.day}}</view>
       </view>
+      <!-- wx:if动态向DOM树添加或删除DOM元素 -->
       <view class="mynoter" wx:if="{{item.status==1}}" bindtap="goToqcxxy" data-id="{{item._id}}">
         <view>{{index+1}}.{{item.note}}</view>
         <view style="margin-left: 70%;">{{item.year}}-{{item.month}}-{{item.day}}</view>
