@@ -1,43 +1,29 @@
-<!--pages/jizhang/jizhang.wxml-->
+<!-- pages/jizhang/jizhang.wxml -->
 <view class="page">
   <view class="user-card">
-
     <view class="user-card__links">
-      <view class="user-card__linkItem" >
+      <view class="user-card__linkItem">
         <label class="user-card__linkLabel">进行中</label>
         <text class="user-card__linkValue">{{ todosUncompletedCount }}</text>
       </view>
-      <view class="user-card__linkItem" >
+      <view class="user-card__linkItem">
         <label class="user-card__linkLabel">已完成</label>
         <text class="user-card__linkValue">{{ todosCompletedCount }}</text>
       </view>
     </view>
   </view>
-
-
   <view class="charts-card">
     <text class="charts-card__header">任务完成率</text>
-    <canvas class="charts-card__body" canvas-id="chartsA"></canvas>
+    <canvas class="charts-cardA__body" canvas-id="ringCanvas"></canvas>
   </view>
-
   <view class="charts-card">
     <text class="charts-card__header">日程类型占比</text>
-    <canvas  canvas-id="pieCanvas"></canvas>
+    <canvas class="charts-cardB__body" canvas-id="pieCanvas"></canvas>
   </view>
-
-<!-- <canvas canvas-id="linCanvas"></canvas> -->
+  <!-- <canvas canvas-id="linCanvas"></canvas> -->
   <view class="charts-card">
     <text class="charts-card__header">日程类型效率</text>
-    <canvas canvas-id="columnCanvas"></canvas>
+    <canvas class="charts-cardC__body" canvas-id="columnCanvas"></canvas>
   </view>
-
 </view>
-
-
-
-
 <!-- <view style="margin-top: 10%;text-align: center;" >底部</view> -->
-
-
-
-

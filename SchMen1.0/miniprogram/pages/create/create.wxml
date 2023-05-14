@@ -1,64 +1,30 @@
-<!--pages/create/create.wxml-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- pages/create/create.wxml -->
 <view class="container">
   <view class='title'>
     <input bindinput='title' placeholder-class="placeholder" placeholder="在此输入标题（可选）" value="" />
   </view>
   <view class='row'>
-        <textarea class='text' maxlength="1000"    bindinput="content"
-        focus="{{focus}}"   placeholder="点击添加文本" />
-    </view>
-
-
-
-
-
-
-
-
-
-
-</view>
-
-<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view class="picker">
-      点选择分类：{{array[index]}}
-    </view>
-  </picker>
-
-
-  <view class="img-wrap">
- 
- <block wx:for="{{images}}" wx:key="index">
-   <view class="one-img">
-     <image src="{{item}}" class="img-choose" mode="aspectFill"></image>
-     <image src="/images/shangchu.png" class="close-img" bindtap="deleteimage" data-src="{{item}}"></image>
-   </view>
- </block>
- <view class="one-img" bindtap="upimages" wx:if="{{images.length < 3}}">
-   <image src="/images/zhaopian.png" class="img-choose"></image>
- </view>
-</view>
-
-
-  <view style="text-align: center;">
-    <text>{{time}}</text>
+    <textarea class='text' maxlength="5000" bindinput="content" focus="{{focus}}" placeholder="点击添加文本" />
   </view>
-
-
-    <view class='bottom'>
-        <button bindtap='submit' class='btn success'>保存</button>
+</view>
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+  <view class="picker">分类：{{array[index]}}</view>
+</picker>
+<view class="img-wrap">
+  <!-- 包装元素，不会在页面中做任何渲染 -->
+  <block wx:for="{{images}}" wx:key="index">
+    <view class="one-img">
+      <image src="{{item}}" class="img-choose" mode="aspectFill"></image>
+      <image src="/images/shangchu.png" class="close-img" bindtap="deleteimage" data-src="{{item}}"></image>
     </view>
+  </block>
+  <view class="one-img" bindtap="upimages">
+    <image src="/images/zhaopian.png" class="img-choose"></image>
+  </view>
+</view>
+<view style="text-align: center; color:#0e0b14;">
+  <text>{{time}}</text>
+</view>
+<view class='bottom'>
+  <button bindtap='submit' class='btn'>保存</button>
+</view>

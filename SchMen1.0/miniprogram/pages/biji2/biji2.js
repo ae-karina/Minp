@@ -8,7 +8,6 @@ Page({
     data: {
         lines:[],
         tishi:""
-
     },
 
     /**
@@ -17,28 +16,20 @@ Page({
     onLoad(options) {
         tishi=options.tishi
         console.log(options,"ooo")
-
-
         var that = this;
         const db = wx.cloud.database()
         db.collection("createnote").where({
             tishi:tishi
         }).get({
-            success:function(res) {
-            console.log('获取成功！',res.data)
-            that.setData({
-                lines: res.data,
-                tishi:tishi
-            })
-            
-        }
-        })    
-
+                success:function(res) {
+                    console.log('获取成功！',res.data)
+                    that.setData({
+                        lines: res.data,
+                        tishi:tishi
+                    })
+                }
+            })    
     },
-
-
-
-
 
     /**
      * 生命周期函数--监听页面初次渲染完成

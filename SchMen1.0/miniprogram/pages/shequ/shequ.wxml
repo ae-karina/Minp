@@ -1,69 +1,58 @@
-<!--pages/shequ/shequ.wxml-->
-
- 
+<!-- pages/shequ/shequ.wxml -->
 <!-- 交流布局 -->
-
 <view>
-    <block wx:for="{{dataList}}"  wx:key="index">
-  <view class="message">
-   
-  <view class="littlemessage">
-    <view class="left" >
-      <image class="face-img"  src="{{item.bosstoursc}}"></image>
-      <view class="top-right">
-      <view class="nickname"  >{{item.nick}}</view>
-      <view class="time">{{item.time}}</view>
-    </view>
-    </view>
-    <view class="right">
-      <view class="huati">#{{item.con}}# </view>
-      <text  class="message-text">{{item.content}}
-      </text>
-      <!-- 图片布局 -->
-      <view class="imags-wrap" data-id="{{item._id}}">
-        <block wx:if="{{item.contentsrc.length>0}}"  wx:key="index"   wx:for="{{item.contentsrc}}" wx:for-item="imgItem" wx:key="index">   
-          <image src="{{imgItem}}" class="image-2-3"  data-src="{{imgItem}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
-        </block>
-      </view>
-    
-      <view class="allbottom"  data-id="{{item._id}}">
-      <view class="allbottom-left">
-        <view class="hudong-box"  data-id="{{item._id}}">
-        <button open-type="share" size="mini" class="share-button" data-index="{{numm}}">
-          <view class="hudong-cell">
-            <image src="/images/share.png" class="hudong-img"></image>
-            <view class="share-text">分享</view>
+  <block wx:for="{{dataList}}" wx:key="index">
+    <view class="message">
+      <view class="littlemessage">
+        <view class="top">
+          <image class="face-img" src="{{item.bosstoursc}}"></image>
+          <view class="top-right">
+            <view class="nickname">{{item.nick}}</view>
+            <view class="time">{{item.time}}</view>
           </view>
-        </button>
-        <view class="hudong-cell2" bindtap="toDetail" data-id="{{item}}">
-          <image src="/images/comment.png" class="hudong-img"></image>
-          <view>{{item.speaklist.length>0?item.speaklist.length:'评论'}}</view>
+        </view>
+        <view class="bottom">
+          <view class="topic">#{{item.con}}#</view>
+          <text class="message-text" bindtap="toDetail" data-id="{{item}}">{{item.content}}</text>
+          <!-- 图片布局 -->
+          <view class="imags-wrap" data-id="{{item._id}}">
+            <!-- 指定数组当前元素的变量名 wx:for用在block标签上，以渲染一个包含多节点的结构块 -->
+            <block wx:if="{{item.contentsrc.length>0}}" wx:key="index" wx:for="{{item.contentsrc}}" wx:for-item="imgItem" wx:key="index">
+              <image src="{{imgItem}}" class="image-2-3" data-src="{{imgItem}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
+            </block>
+          </view>
+          <view class="allbottom" data-id="{{item._id}}">
+            <!-- <view class="allbottom-left"> -->
+            <!-- <view class="hudong-box" data-id="{{item._id}}"> -->
+            <button open-type="share" size="mini" class="share-button" data-id="{{item._id}}" data-index="{{index}}">
+              <view class="hudong-cell2">
+                <image src="/images/share.png" class="hudong-img"></image>
+                <view class="share-text">分享</view>
+              </view>
+            </button>
+            <!-- </view> -->
+            <!-- </view> -->
+            <!-- 因为用到详细的数据 所以把它传过来 -->
+            <view class="hudong-cell2" bindtap="toDetail" data-id="{{item}}">
+              <image src="/images/comment.png" class="hudong-img"></image>
+              <view style="color: #7F7F7F;">
+                {{item.speaklist.length>0?item.speaklist.length:'评论'}}
+              </view>
+            </view>
+            <view class="hudong-cell2">
+              <image class="hudong-img" src="/images/looknumber.png"></image>
+              <view class="looknumber">{{item.skan}}</view>
+            </view>
+          </view>
         </view>
       </view>
-      
-      </view>
-      <view class="allbottom-right">
-      <image class="lookimg" src="/images/looknumber.png"></image>
-        <view class="looknumber">{{item.skan}}</view></view>
-      </view>
     </view>
-  </view>
+  </block>
 </view>
-</block>
-  
-  </view>
-
-
-
-
-  <image class="add" bindtap="add" src="../../images/add.png"></image>
-
-
+<image class="add" bindtap="add" src="../../images/add.png"></image>
 <!-- 下拉刷新 -->
-
-
 <view class="jiazai" wx:if="{{jiazai}}">
-<view class="jiazaizhong">
-<image src="/images/loading.gif"></image></view>
+  <view class="jiazaizhong">
+    <image src="/images/loading.gif"></image>
+  </view>
 </view>
-

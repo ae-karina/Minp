@@ -10,6 +10,29 @@ Page({
         tishi:"旅游",
     },
 
+    show(){
+        if(this.data.show==false){
+            this.setData({
+                show:true
+            })
+        }else{
+            this.setData({
+                show:false
+            })
+        }
+
+    },
+    //选择
+    choooType(e){
+        let tishi=e.currentTarget.dataset.type
+        wx.navigateTo({
+            url: '../biji2/biji2?tishi=' + tishi
+        })
+        this.setData({
+            tishi:tishi
+        })
+    
+    },
     onNewItem:function(e){
         wx.navigateTo({
             url: '../create/create'
@@ -24,17 +47,7 @@ Page({
 
 
 
-     //选择
-choooType(e){
-    let tishi=e.currentTarget.dataset.type
-    wx.navigateTo({
-        url: '../biji2/biji2?tishi=' + tishi
-      })
-      this.setData({
-        tishi:tishi
-      })
-  
-  },
+     
 
 
     /**
@@ -51,35 +64,45 @@ choooType(e){
 
     },
 
+
+    async onLoad(){
+        const db = wx.cloud.database()
+        let count =await db.collection("notes").where({
+             _openid: wx.getStorageSync('openid')|| [] 
+        }).count()
+        count = count.total
+        let all = []
+        for (let i =0;i<count;i+=20){
+            let list =await db.collection("createnote").where({
+                            _openid: wx.getStorageSync('openid')|| [] 
+                        }).orderBy('ts','desc').skip(i).get()
+            all =all.concat(list.data)
+            this.setData({
+                lines:all,
+            })
+        }
+    },
+
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
- var that = this;
-        const db = wx.cloud.database()
-        db.collection("createnote").get({
-            success:function(res) {
-            console.log('获取成功！',res.data)
-            that.setData({
-                lines: res.data,
-            })
-            
-        }
-        })    
+        this.onLoad()
+        // var that = this;
+        // const db = wx.cloud.database()
+        // db.collection("createnote").where({
+        //     _openid: wx.getStorageSync('openid')|| [] 
+        // }).get({
+        //     success:function(res) {
+        //         console.log('获取成功！',res.data)
+        //         that.setData({
+        //             lines: res.data,
+        //         })
+        //     }   
+        // })    
     },
 
-    show(){
-        if(this.data.show==false){
-            this.setData({
-                show:true
-            })
-        }else{
-            this.setData({
-                show:false
-            })
-        }
-
-    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏
@@ -99,16 +122,16 @@ choooType(e){
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        var that = this;
-        const db = wx.cloud.database()
-        db.collection('createnote').get({
-         success:function(res){
-        console.log(res.data)
-        that.setData({
-            lines: res.data
-        })
-      }
-    })
+    //     var that = this;
+    //     const db = wx.cloud.database()
+    //     db.collection('createnote').get({
+    //      success:function(res){
+    //     console.log(res.data)
+    //     that.setData({
+    //         lines: res.data
+    //     })
+    //   }
+    // })
 
     },
 

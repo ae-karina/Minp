@@ -3,7 +3,7 @@
         "pages/schedule/schedule",
         "pages/index/index",
         "pages/my/my",
-        "pages/jizhang/jizhang",
+        "pages/analysis/analysis",
         "pages/biji/biji",
         "pages/add/add",
         "pages/create/create",
@@ -42,7 +42,7 @@
                 "selectedIconPath": "images/bi02.png"
             },
             {
-                "pagePath": "pages/jizhang/jizhang",
+                "pagePath": "pages/analysis/analysis",
                 "text": "数据",
                 "iconPath": "images/sj.png",
                 "selectedIconPath": "images/sj01.png"

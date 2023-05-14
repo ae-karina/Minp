@@ -50,7 +50,8 @@ Page({
         wx.cloud.database().collection("notes").orderBy('time','desc').where({
             day:day,
             month:month,//点中哪个日期就显示哪个日期
-            year:year
+            year:year,
+            _openid: wx.getStorageSync('openid') || []
         }).get({  //获取集合数据，或获取根据查询条件筛选后的集合数据
             success(res){       
                 that.setData({ //通过setData，将res中的数据存入到note数组当中
@@ -90,16 +91,41 @@ Page({
     //         hiddenmodalput: true
     //     })
     // },
+
+    async onLoad(){
+        const db = wx.cloud.database()
+        let count =await db.collection("notes").where({
+             _openid: wx.getStorageSync('openid')|| [] 
+        }).count()
+        count = count.total
+        // console.log(count)
+        // console.log(wx.getStorageSync('openid'))
+        let all = []
+        for (let i =0;i<count;i+=20){
+             let list =await db.collection("notes").where({
+                            _openid: wx.getStorageSync('openid')|| [] // 填入当前用户 openid
+                        }).orderBy('time','desc').skip(i).get()
+                        // console.log(list)
+            all =all.concat(list.data)
+            this.setData({
+                note:all,
+            })
+        console.log(this.data.note)
+        }
+    },
     onShow:function(){
-        var that= this
-        wx.cloud.database().collection("notes").orderBy('time','desc').get({
-            success(res){  
-                that.setData({ //通过setData，将res中的数据存入到note数组当中
-                  note:res.data,
-                }),
-                console.log(res.data,'99')   ///打印看一下  
-              }
-        })
+        this.onLoad()
+        // var that= this
+        // wx.cloud.database().collection("notes").orderBy('time','desc').where({
+        //     _openid: wx.getStorageSync('openid') || []
+        // }).get({
+        //     success(res){  
+        //         that.setData({ //通过setData，将res中的数据存入到note数组当中
+        //           note:res.data,
+        //         }),
+        //         console.log(res.data,'99')   ///打印看一下  
+        //       }
+        // })
     },
     add2(){
         wx.navigateTo({

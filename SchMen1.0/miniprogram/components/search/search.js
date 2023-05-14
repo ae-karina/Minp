@@ -17,13 +17,10 @@ Component({
    * 组件的初始数据
    */
   data: {
-   
-   isFocus:false,
+    isFocus:false,
     historyList:[],
     searchList:[],
     value:''
-  
-   
   },
 
   /**
@@ -32,74 +29,68 @@ Component({
   methods: {
     handleFocus(){
       wx.getStorage({
-      key:"searchHistory",
-      success:(res)=> {
+        key:"searchHistory",
+        success:(res)=> {
+          this.setData({
+            historyList:res.data
+          });
+          // console.log(res.data,"ll")
+        }
+      })
       this.setData({
-      historyList:res.data
-      });
-      }
-    })
-    
-      this.setData({
-      isFocus:true
+        isFocus:true
       });
     },
-      handleCancel(value){
+    handleCancel(value){
       this.setData({
-      isFocus:false,
-     
+        isFocus:false,
       });
-      },
-      handleConfirm(ev){
+    },
+    handleConfirm(ev){
       console.log(ev.detail.value);
       let value=ev.detail.value;
-      let cloneHistoryList=[...this.data.historyList];
-      cloneHistoryList.unshift(value);
+      let cloneHistoryList=[...this.data.historyList];//数组转为用逗号分隔的参数序列，并拷贝，浅拷贝
+      cloneHistoryList.unshift(value);//在最前一位加 
       wx.setStorage({
-      key:"searchHistory",
-      data:[...new Set(cloneHistoryList)]
+        key:"searchHistory",
+        data:[...new Set(cloneHistoryList)] //数组去重
       });
       this.changeSearchList(value);
-      },
-      
-      handleHistoryDelete(){
+    },     
+    handleHistoryDelete(){
       wx.removeStorage({
-      key:'searchHistory',
-      success:(res)=>{
-      console.log(res)
-      this.setData({
-      historyList :[]
-      });
-      }
+        key:'searchHistory',
+        success:(res)=>{
+          console.log(res)
+          this.setData({
+            historyList :[]
+          });
+        }
       })
-      },
-      changeSearchList(value){
-        db.collection('createnote').where({
-        
-         title:db.RegExp({
-            regexp: value,
-            options: 'i'
-      })
-      }).field({
-       title:true,
-       content:true,
-        img:true
-      }).get().then((res)=>{
+    },
+    changeSearchList(value){
+      db.collection('createnote').where({
+        title:db.RegExp({//正则表达
+          regexp: value,
+          options: 'i'//大小写不敏感
+        })
+      }).field({  //用于指定需返回的字段
+          title:true,
+          content:true,
+          img:true
+        }).get().then((res)=>{
+          console.log(res.data,"kk")
+            this.setData({
+              searchList : res.data,
+              value:''
+            });
+          });
+    },
 
-      this.setData({
-      searchList : res.data,
-      value:''
-      });
-    });
-      },
-
-  handleHistoryItemDel(ev){
-let value=ev.target.dataset.text;
-this.changeSearchList(value);
-}
-},
-
-
-
+    handleHistoryItemDel(ev){
+      let value=ev.target.dataset.text;
+      this.changeSearchList(value);
+    }
+  },
 })
       

@@ -2,15 +2,39 @@
 @import"../create/create.wxss";
 
 
-.picker{
+
+.sav{
+  margin: 10rpx;
+  width: 100px !important;
+  color: #fff;
+  background-color: #ccd5ae;
+  border-radius: 25px;
+}
+
+
+.del{
+  margin: 10rpx;
+  width: 100px !important;
+  color: #fff;
+  background-color: #e5989b;
+  border-radius: 25px;
+}
+
+
+
+
+
+
+
+/* .picker{
   flex: 1 1 auto;
   height: 100%;
   padding-left: 35rpx;
   border-top:1rpx solid #f1f1f1;
-}
+} */
 
 
-.img-wrap {
+/* .img-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -41,4 +65,4 @@
     padding-bottom: 30rpx;
     border-bottom: 2rpx solid rgb(221, 220, 220);
   }
-  
+   */

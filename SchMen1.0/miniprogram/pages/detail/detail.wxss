@@ -6,165 +6,311 @@ page {
     background-color: rgb(242, 242, 244);
   }
   
-  .delete {
-    color: #586B94;
-    position: absolute;
-    top: 10rpx;
-    right: 40rpx;
-    font-size: 30rpx;
-  }
-  
-  /* 评论部分 */
-  .comment-box {
-    background-color: white;
+  .message {
     display: flex;
     flex-direction: row;
-    padding-top: 20rpx;
+    position: relative;
+    margin: 6rpx;
+    background-color: white;
+    padding: 10rpx 20rpx 10rpx 20rpx;
+    /* border: 5px solid #000; */
   }
-  
+  .littlemessage {
+    width: 100%;
+    /* padding-right: 20px; */
+    /* margin: 20rpx;
+    width: 700rpx;
+    border: 5px solid #000; */
+
+  }
+   /* 上半部分 */
+  .top {
+    display: flex;
+    flex-direction: row;
+  }
+  .face-img {
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 15rpx;
+    border-radius: 50%;
+    background: -webkit-linear-gradient(top, #e7e7e7, #f0efed, #f0efed);
+  }
+  .top-right {
+    margin-left: 10rpx;
+  }
+  .nickname {
+    display: inline-block;
+    width: 400rpx;
+    font-size: 30rpx;
+    letter-spacing: 2rpx;
+  }
+  .time {
+    margin: 7rpx 20rpx 0 0;
+    color: #7F7F7F;
+    font-size: 26rpx;
+  }
+  .topic {
+    margin-top: 20rpx;
+    margin-left: 14rpx;
+    color: #344CC6;
+    font-weight: 520;
+    font-size: 28rpx;
+  }
+  .message-text {
+    display: inline-block;
+    margin-top: 20rpx;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 28rpx;
+    letter-spacing: 2rpx;
+    /* width: 600rpx; */
+  }
+  .imags-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* margin: 20rpx 20rpx 0; */
+    align-items: center;
+    margin-top: 20rpx;
+    /* justify-content: space-between; */
+    /* align-content: space-around; */
+  }
+  .image-2-3 {
+    width: 229rpx;
+    height: 229rpx;
+    margin-bottom: 8rpx;
+    margin-right: 8rpx;
+    background: -webkit-linear-gradient(top, #e7e7e7, #f0efed, #f0efed);
+    border-radius: 15rpx;
+  }
+  .allbottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20rpx 0 10rpx 0;
+    padding: 0 20px;
+    align-items:center;
+    /* width: 650rpx; */
+    /* background-color: rgb(0,0,0,.3); */
+  }
+  .share-button {
+    margin: 0px;
+    padding: 0px !important;
+    font-weight: normal;
+    background-color: white;
+    /* background-color: rgb(0,0,0,.3); */
+    /* width: 20px !important; */
+    /* height: 10px; */
+  }
+  .hudong-cell2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 24rpx;
+    /* margin-left: 190rpx; */
+    /* background-color: rgb(0,0,0,.3); */
+  }
+  .hudong-img {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+  }
+  /* 全部评论 */
+  .quanbupinglun{
+    display: flex;
+    margin-top: 20rpx;
+    height: 80rpx;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2rpx solid rgb(240, 240, 240);
+  }
+  .quanbupinglun-box{
+    margin-left: 20rpx;
+    font-size: 30rpx;
+  }
+  /* 评论部分 */
+  .comment-box {
+    display: flex;
+    flex-direction: row;
+    /* padding-top: 20rpx; */
+    /* background-color: white; */
+  }
+  .comment-right{
+    width: 100%;
+  }
   .comment-one {
     display: flex;
     flex-direction: row;
-    margin: 0 20rpx 40rpx 20rpx;
+    margin: 0px 0rpx 3rpx 0rpx;
+    padding:10px;
+    background-color: #fff;
+    /* border-top: 2rpx solid rgb(240, 240, 240); */
   }
-  
+
   .comment-face {
+    margin-right: 20rpx;
     width: 70rpx;
     height: 70rpx;
     border-radius: 50rpx;
-    margin-right: 20rpx;
   }
-  
   .nickname-time {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 600rpx;
   }
-  
   .comment-nickname {
     color: #586B94;
     font-weight: 550;
-   
     font-size: 30rpx;
   }
-  
   .comment-time {
     color: #7F7F7F;
     font-size: 26rpx;
   }
-  
   .comment-text {
+    display: inline-block;
     margin-top: 14rpx;
-   
-    font-size: 28rpx;
     width: 606rpx;
-        
+    font-size: 28rpx;
     word-wrap: break-word;
     word-break: break-all;
-    
     letter-spacing: 2rpx;
-    display: inline-block;
   }
-  
   .comment-obj {
     color: #586B94;
     font-weight: 550;
   }
-  
   /* 发布评论 */
   .pub-comment {
-    background-color: white;
-    padding: 20rpx 40rpx;
+    /* display: none; */
+    opacity: 0;
     display: flex;
+    position: fixed;
+    /* bottom: -9999; */
+    padding: 20rpx 40rpx;
     flex-direction: row;
     align-items: center;
+    background-color: white;
+    /* background-color: rgba(0,0,0,.3); */
+    /* transition: 1s; */
+  }
+  .pub-comment-show {
+    /* display: none; */
+    display: flex;
     position: fixed;
     bottom: 0;
+    padding: 20rpx 40rpx;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    /* background-color: rgba(0,0,0,.3); */
+    opacity: 1;
+    transition: 1s;
   }
-  
   .pub-left {
-    background-color: #fff;
-    color: #7F7F7F;
-    border-radius: 10rpx;
     margin-right: 20rpx;
+    color: #7F7F7F;
+    background-color: #fff;
+    /* border-radius: 10rpx; */
   }
-  
   .pub-input {
     padding: 10rpx 20rpx;
     width: 500rpx;
-    background-color: rgb(250, 251, 253);
+    background-color: rgb(240, 240, 240);
+    border-radius: 15rpx; 
+    height: 25px;
   }
-  
   .pub-button {
-    color: #7F7F7F;
+    padding: 10rpx 18rpx;
     border: solid 1rpx #7F7F7F;
+    color: #7F7F7F;
     border-radius: 10rpx;
-    padding: 10rpx 20rpx;
+    text-align:center;
   }
   
   
-  
-  .message {
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    position: relative;
-    padding: 10rpx 20rpx 10rpx 20rpx;
-  }
-  
-  .face-img {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* .delete {
+    color: #586B94;
+    position: absolute;
+    top: 10rpx;
+    right: 40rpx;
+    font-size: 30rpx;
+  } */
+  /* .face-img {
     width: 70rpx;
     height: 70rpx;
     border-radius: 50%;
     background: -webkit-linear-gradient(top, #e7e7e7, #f0efed, #f0efed);
-  }
-  
+  } */
   /*右半部分*/
-  .right {
+  /* .right {
     width: 580rpx;
   }
-  
+   */
   /* 昵称 */
-  .nickname {
+  /* .nickname {
     font-size: 30rpx;
     letter-spacing: 2rpx;
     margin-left: 20rpx;
     width: 450rpx;
     display: inline-block;
-    
-  }
-  
-  .message-text {
-    width: 600rpx;
-    margin-top: 20rpx;
-    word-wrap: break-word;
-    word-break: break-all;
-    font-size: 28rpx;
-    letter-spacing: 2rpx;
-    display: inline-block;
-  
-  }
-  
-  
-  .time {
+  } */
+  /* .time {
     color: #7F7F7F;
     margin-right: 20rpx;
     font-size: 26rpx;
     margin: 7rpx 0 0 20rpx;
-  }
-  
+  } */
   /* 互动 模块 */
-  .hudong-img {
+  /* .hudong-img {
     width: 30rpx;
     height: 30rpx;
     margin-right: 10rpx;
   }
-  
   .share-text {
     color: #7F7F7F;
   }
-  
   .hudong-box {
     height: 60rpx;
     display: flex;
@@ -174,7 +320,6 @@ page {
     justify-content: space-evenly;
     margin: 20rpx 0 0 -20rpx;
   }
-  
   .hudong-cell {
     display: flex;
     flex-direction: row;
@@ -182,13 +327,11 @@ page {
     font-size: 24rpx;
   
   }
-  
   .hudong-cell2 {
     display: flex;
     flex-direction: row;
     align-items: center;
     font-size: 24rpx;
-  
   }
   .hudong-cell22 {
     display: flex;
@@ -198,68 +341,37 @@ page {
     margin-left: 5rpx;
   
   }
-  
   .hudong-cell222 {
     display: flex;
     flex-direction: row;
     align-items: center;
-   
     margin-left: 20rpx;
-  
-  }
-  
-  
-  
-  
+  } */
   /* 动态图片 */
-  .imags-wrap {
+  /* .imags-wrap {
     margin-top: 20rpx;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  
   .image-2-3 {
     width: 180rpx;
     height: 180rpx;
     margin-right: 8rpx;
     background: -webkit-linear-gradient(top, #e7e7e7, #f0efed, #f0efed);
     border-radius: 15rpx;
-  }
-  
-  
-  .share-button {
+  } */
+  /* .share-button {
     background-color: white;
     margin-left: 30rpx;
-  }
-  
-  .timebox {
+  } */
+  /* .timebox {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  /* 全部评论 */
-  .quanbupinglun{
-    height: 80rpx;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 2rpx solid rgb(240, 240, 240);
-    display: flex;
-    align-items: center;
-    margin-top: 20rpx;
-    
-    
-  }
-  .quanbupinglun-box{
-    font-size: 30rpx;
-    margin-left: 20rpx;
-  }
-  .comment-right{
-    width: 100%;
-  }
-  
-  
-  
-  
+   */
+/*   
   .dian{
     margin-left: 16rpx;
-  }
+  } */
