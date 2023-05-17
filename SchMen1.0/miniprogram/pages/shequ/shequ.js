@@ -1,5 +1,8 @@
 // pages/shequ/shequ.js 
+import utill from '../utils/utill'
+
 const db = wx.cloud.database()
+const _ = db.command
 var page = 0
 let pageSize = 10  //每页显示多少数据
 var currentPage = 0  //当前第几页,0代表第一页 
@@ -11,23 +14,26 @@ Page({
   data: {
     dataList:[],
     jiazai:true,
+    change:{},
+    s:'',
+    a:'',
   },
 
   time:function(e){
-    console.log('打印第一个emm'+e) 
+    // console.log('打印第一个emm'+e) 
     var time = Date.now();   //返回自1970年1月1日 00:00:00 UTC到当前时间的毫秒数
-    console.log('打印第一',time) 
-    console.log(time)        
-    console.log(time - e)
+    // console.log('打印第一',time) 
+    // console.log(time)        
+    // console.log(time - e)
     var timecha = time - e
   
-    var date1 = new Date(e);       //time是你数据的时间戳
-    console.log(date1,"date1")
-    var year = date1.getFullYear();
-    var month = date1.getMonth() + 1;
-    var date = date1.getDate();
-    var hour = date1.getHours();
-    var mm = date1.getMinutes(); 
+    // var date1 = new Date(e);       //time是你数据的时间戳
+    // console.log(date1,"date1")
+    // var year = date1.getFullYear();
+    // var month = date1.getMonth() + 1;
+    // var date = date1.getDate();
+    // var hour = date1.getHours();
+    // var mm = date1.getMinutes(); 
   
     console.log("测试string:"+typeof e);
      
@@ -36,13 +42,12 @@ Page({
       return e
     }else if(timecha/1000 <86400){
       console.log('时间为这三天')  //不是一天吗
-      let  e =  hour + ':' +mm
-      console.log(e)
-      return e
+      return utill.formatD(new Date(e))
+      
     }else if(timecha/1000 >86400){
       console.log('时间为以前')
-      let e = month+'-'+date+' '+hour+':'+mm
-      return e
+      return utill.formatM(new Date(e))
+
     }
    },
 
@@ -98,10 +103,109 @@ Page({
   },
 
 
+  // change(){
+  //   var that=this
+  //   db.collection("user")
+  //     .where({ _openid: wx.getStorageSync("openid") })
+  //     .watch({
+  //       onChange: function (snapshot) {
+  //         console.log("docs's changed events", snapshot.docChanges);
+  //         console.log("query result snapshot after the event", snapshot.docs);
+  //         console.log("is init data", snapshot.type === "init");
+  //         that.setData({
+  //           change:snapshot.docs[0]
+  //         })
+  //         console.log(that.data.change)
+  //       },
+  //       onError: function (err) {
+  //         console.error("the watch closed because of error", err);
+  //       },
+  //     });
+      
+      // console.log(watcher)
+      // if(watcher){
+      //   db.collection("friens").where({ _openid: wx.getStorageSync("openid") }).update({
+      //       bosstoursc:snapshot.docs[0].avatarUrl,
+      //       nick:snapshot.docs[0].nick,
+      //       'speaklist.src':snapshot.docs[0].avatarUrl,
+      //     })
+      //   let get=db.collection("friens").where({ _openid: wx.getStorageSync("openid") }).get()
+      //   if(get){
+      //     if(get.speaklist.length>0){
+      //       // const _ = db.command
+      //       db.collection('friends').where({
+      //         speaklist: _.elemMatch({
+      //           openid: wx.getStorageSync("openid"),
+      //         })
+      //       })
+      //       .update({
+      //         src:watcher.docs[0].avatarUrl,
+      //         nick:watcher.docs[0].nick
+      //       })
+      //     }
+      //   }
+      // }
+  // },
+
+  // check(){
+  //    db.collection("friens").where({ 
+  //     _openid: wx.getStorageSync("openid").and ("speaklist.$[].openid"wx.getStorageSync("openid"))
+  //   }).get()
+          
+  // },
+  async changedata(){//检测到变化更新数据库
+    let res= await db.collection("friends").where({ _openid: wx.getStorageSync("openid") })
+    .update({
+      data: {
+        nick: this.data.s,
+        bosstoursc: this.data.a,
+      },
+    });
+    let sps= await db.collection("speak").where({ _openid: wx.getStorageSync("openid") })
+    .update({
+      data: {
+        nick: this.data.s,
+        src: this.data.a,
+        toNickname:this.data.s,
+      },
+    });
+    if(res&sps){
+      this.getData(0)
+    }
+},
+
+ load(){
+  this.watch()
+    
+      setTimeout(() => {
+        this.changedata()
+    }, 3000)
+
+ },
+  watch(){//监控数据变化
+    var that=this
+    db.collection("user")
+      .where({ _openid: wx.getStorageSync("openid") })
+      .watch({
+        onChange: function (snapshot) {
+          console.log("docs's changed events", snapshot.docChanges);
+          console.log("query result snapshot after the event", snapshot.docs);
+          console.log("is init data", snapshot.type === "init");
+          that.setData({
+            a:snapshot.docs[0].avatarUrl,
+            s:snapshot.docs[0].nick
+          })
+          console.log(that.data.a,that.data.s)
+        },
+        onError: function (err) {
+          console.error("the watch closed because of error", err);
+        },
+      });
+  },
 
   // 页面加载信息
   onLoad(){
-    this.getData(0)
+    this.load()
   },
 
 
@@ -123,9 +227,6 @@ Page({
   getData(currentPage){
     let that =this;
     wx.cloud.database().collection("friends")
-    .where({
-      tishi:"社区"
-    })
     .orderBy('time','desc')
     .skip(currentPage * pageSize)  //跳过前面几条数据，请求后面的数据 
     .limit(pageSize)   //请求多少条数据

@@ -1,57 +1,132 @@
 /* pages/my/my.wxss */
 
+page {
+  background-color: rgb(238, 238, 238);
+}
 
 
-page{
-    background-color: rgb(238, 238, 238);
-  }
-  
-  
-  
-  /* 登录 */
-  .user{  background-color: #fde3d5; }
-  .user-info{height:200rpx;width: 100%;flex-direction: row;display: flex;
-    background-color: #e8989a;color: rgb(250, 253, 253);margin-bottom: 26rpx;}
-    .user-info image{width:160rpx; height:160rpx;border-radius:50%;overflow:hidden;margin-top: 20rpx;margin-left: 40rpx;}
-    .user-view {margin-left:10rpx;margin-top: 80rpx;font-size: 43rpx;color: black;}
-    .user-info button{margin-top:10rpx;font-size: 36rpx;  background-color: #fde3d5;}
-    
-    .setup_name{
-      margin-right: 480rpx;
-    }
-  
-  
-  .weui-input{
-      text-align:center;
-  }
-  
-  .setup_name1{
-    margin-right: 400rpx;
-  }
+.user {
+  /* background-color: #fde3d5; */
+}
+/* 登录模块 */
+.user-login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 26rpx;
+  /* background-color: rgb(232, 152, 154,.6); */
+  /* background-color: #fde3d5; */
+  /* align-content: space-evenly;  */
+  /* align-items: center; */
+  /* color: rgb(250, 253, 253); */
+}
+.avatar-choose{
+  margin: 280rpx 0 60rpx 0;
+  width: 164rpx !important;
+  height: 160rpx;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #d8d0d2;
+  /* line-height: 140rpx; */
+}
+.avatar-login{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 70rpx;
+}
+.login-input {
+  margin-bottom: 280rpx;
+  text-align: center;
+  /* background-color: rgba(0,0,0,.5); */
+}
+.log-btn{
+  padding: 0;
+  width: 360rpx !important;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  background-color: rgb(177, 235, 175);
+  background-color: #c9dda2;
+}
 
+/* 登录成功之后 */
+.user-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200rpx;
+  margin-bottom: 26rpx;
+  align-items: center;
+  color: rgb(250, 253, 253);
+  background-color: #e8989a;
+  /* background-color: rgb(238, 192, 193,.5); */
+  /* line-height: 200rpx; */
+}
+.user-info image {
+  overflow: hidden;
+  width: 160rpx;
+  height: 160rpx;
+  margin-left: 40rpx;
+  border-radius: 50%;
+  /* margin-top: 20rpx; */
+}
+.user-view {
+  margin-left: 30rpx;
+  /* color: black; */
+  font-size: 43rpx;
+  /* margin-top: 80rpx; */
+}
+.func {
+  width: 90%;
+  margin: 5%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 30rpx;
+  box-shadow: 0px 0px 4px 2px #d3d3d3;
+  /* background-color: yellow; */
+  /* border: 6rpx solid red */
+}
+.mecontent {
+  display: flex;
+  flex-direction: column;
+  margin: 3.5%;
+  /* background-color: aqua; */
+  /* border: 6rpx solid darkblue; */
+}
+.mefuntion {
+  font-size: x-small;
+  text-align: center;
+  color: #666666;
+  margin-top: 20%;
+}
+.btn-need {
+  padding: 0;
+  width: 120rpx !important;
+  height: 120rpx;
+  line-height: 51px;
+  background-color: #eeeeee;
+}
+.btn-logout{
+  padding: 0;
+  width: 200rpx !important;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  font-size: 16px;
+  background-color: #cecaca;
+  margin-top: 400rpx;
+}
+/* .user-info button {
+  margin-top: 10rpx;
+  font-size: 36rpx;
+  background-color: #fde3d5;
+} */
+/* .setup_name {
+  margin-right: 480rpx;
+} */
 
-
-.func{
-    width: 90%;
-    margin: 5%;
-    display: flex;
-    flex-direction: row;
-    border-radius: 30rpx;
-    box-shadow: 0px 0px 4px 2px #d3d3d3;
-    /* background-color: yellow; */
-    /* border: 6rpx solid red */
-  }
-  .mecontent{
-    display: flex;
-    flex-direction: column;
-    margin: 3.5%;
-    /* background-color: aqua; */
-    /* border: 6rpx solid darkblue; */
-  }
-  
-  .mefuntion{
-    font-size: x-small;
-    text-align: center;
-    color: #666666;
-    margin-top: 20%;
-  }
+/* .setup_name1 {
+  margin-right: 400rpx;
+} */

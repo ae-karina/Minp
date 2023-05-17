@@ -1,0 +1,15 @@
+<!-- pages/mycount/mycount.wxml -->
+<form bindsubmit="submit">
+  <view class="cont">
+    <view class="propho">
+      <image src="{{avatarUrl}}" mode="" bindtap='changepro' />
+      <text>点击头像可以修改</text>
+    </view>
+    <view class="innick">
+      <text>昵称</text>
+      <input type="text" placeholder="请输入昵称" value="{{nick}}" bindinput="getInputValue" />
+    </view>
+  </view>
+  <button class="sure" form-type="submit">确认</button>
+  <button class="call" bindtap="phonecall">联系我们</button>
+</form>

@@ -177,10 +177,8 @@ page {
     word-break: break-all;
     letter-spacing: 2rpx;
   }
-  .comment-obj {
-    color: #586B94;
-    font-weight: 550;
-  }
+
+
   /* 发布评论 */
   .pub-comment {
     /* display: none; */

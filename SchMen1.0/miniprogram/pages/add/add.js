@@ -180,8 +180,7 @@ submitform(e){
                   nick:nick.nick,
                   content:e.detail.value.contain,
                   con:that.data.inputbiaoqian,
-                  tishi:"社区",
-                  speaklist:[],
+                  speaklist:0,
                   skan:0,
                   time: Date.now(),
                 }

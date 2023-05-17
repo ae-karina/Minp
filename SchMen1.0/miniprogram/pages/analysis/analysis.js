@@ -132,7 +132,7 @@ async syncData () {
     this.syncData()
 
     let that=this
-    wx.cloud.database().collection('notes').get()
+    wx.cloud.database().collection('notes').where({_openid: wx.getStorageSync("openid")}).get()
     .then(res=>{
       for(var i=0;i<res.data.length;i++){
         if(res.data[i].leix=="用餐"){

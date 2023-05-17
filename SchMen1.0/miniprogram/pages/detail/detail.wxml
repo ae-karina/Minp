@@ -2,7 +2,7 @@
 <view class="message">
   <view class="littlemessage">
     <view class="top">
-      <image class="face-img" src="{{action.bosstoursc}}"></image>
+      <image class="face-img" src="{{action.bosstoursc}}" />
       <view class="top-right">
         <view class="nickname">{{action.nick}}</view>
         <view class="time">{{action.time}}</view>
@@ -17,7 +17,7 @@
       <block wx:for="{{action.contentsrc}}" wx:key="index">
         <!-- wx:if="{{action.contentsrc.length == 1 || action.contentsrc.length == 2 || action.contentsrc.length == 3}}" -->
         <block wx:if="{{action.contentsrc.length>0}}">
-          <image src="{{item}}" class="image-2-3" bindtap="previewImg" data-src="{{item}}" mode="aspectFill"></image>
+          <image src="{{item}}" class="image-2-3" bindtap="previewImg" data-src="{{item}}" mode="aspectFill" />
         </block>
       </block>
     </view>
@@ -26,17 +26,17 @@
     <view class="allbottom">
       <button open-type="share" size="mini" class="share-button">
         <view class="hudong-cell2">
-          <image src="/images/share.png" class="hudong-img"></image>
+          <image src="/images/share.png" class="hudong-img" />
           <!-- <view class="share-text"></view> -->
         </view>
       </button>
       <!-- wx:if="{{action.lianxi<0 || action.lianxi==null}}" -->
       <view class="hudong-cell2" bindtap="showPub">
-        <image src="/images/comment.png" class="hudong-img"></image>
+        <image src="/images/comment.png" class="hudong-img" />
         <!-- <view>{{action.speaklist.length>0?action.speaklist.length:'评论'}}</view> -->
       </view>
       <view class="hudong-cell2" wx:if="{{openid==action._openid}}" bindtap="dete">
-        <image src="/images/del.png" class="hudong-img"></image>
+        <image src="/images/del.png" class="hudong-img" />
       </view>
     </view>
   </view>
@@ -44,22 +44,19 @@
 <view class="quanbupinglun">
   <text class="quanbupinglun-box">全部评论</text>
 </view>
-<!-- 评价内容 -->
-<view class="comment-box" wx:if="{{action.speaklist.length > 0}}">
+<!-- 评价内容 action.action. -->
+<view class="comment-box" wx:if="{{speaklist.length > 0}}">
   <view class="comment-right">
-    <block wx:for="{{action.speaklist}}" wx:key="index">
+    <block wx:for="{{speaklist}}" wx:key="index">
       <view class="comment-one" data-index="{{index}}" bindtap="huifuComment">
-        <image src="{{item.src}}" class="comment-face"></image>
+        <image src="{{item.src}}" class="comment-face" />
         <view class="comment-content">
           <view class="nickname-time">
             <view class="comment-nickname">{{item.nick}}</view>
             <view class="comment-time">{{item.time}}</view>
           </view>
           <view class="comment-text" selectable="true">
-            <text wx:if="{{item.toOpenid}}">
-              回复
-              <text class="comment-obj">{{item.toNickname}}：</text>
-            </text>
+            <text wx:if="{{item.toReid}}">回复{{item.toNickname}}：</text>
             {{item.speak}}
           </view>
         </view>
@@ -68,10 +65,10 @@
   </view>
 </view>
 <!-- 底部 -->
-<view style="height:200rpx"></view>
+<view style="height:200rpx" />
 <view class="{{isPubShow?'pub-comment-show':'pub-comment'}}">
   <view class="pub-left">
-    <input class="pub-input" cursor-spacing="10px" placeholder="{{plcaceHolder}}" bindinput="getInputValue" value="{{speak}}" bindconfirm="publishComment"></input>
+    <input class="pub-input" cursor-spacing="10px" placeholder="{{plcaceHolder}}" bindinput="getInputValue" value="{{speak}}" bindconfirm="publishComment" />
   </view>
   <view class="pub-button" bindtap="publishComment">发送</view>
 </view>

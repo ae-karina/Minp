@@ -35,6 +35,20 @@ const formatSD=date=>{
 
   return `${[year, month, day].map(formatNumber).join('-')} ${[hour, minute, second].map(formatNumber).join(':')}`
 }
+const formatD=date=>{
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+
+  return `${[hour, minute].map(formatNumber).join(':')}`
+}
+const formatM=date=>{
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+
+  return `${[month, day].map(formatNumber).join('-')} ${[hour, minute].map(formatNumber).join(':')}`
+}
 
 const formatNumber = n => {
   n = n.toString()
@@ -45,7 +59,9 @@ module.exports = {
   formatTime,
   formatDate,
   formatDay,
-  formatSD
+  formatSD,
+  formatD,
+  formatM
 }
 
 

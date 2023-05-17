@@ -1,82 +1,53 @@
 
-
-page{
+/* page{
     padding-bottom: 200rpx;
-  }
+  } */
 
   .add-page{
     width: 100%;
-    font-size: 43rpx;
-   
-    
+    /* font-size: 43rpx; */
   }
-  .address-block{
-    padding-left: 10rpx;
-    padding-right: 51rpx;
+  .feedback-block{
+    margin: 0 15px;
     background-color: #ffffff;
+    /* background-color: rgba(65, 40, 40, 0.1); */
   }
-  .address-info{
+  .im{
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 5px;
+  }
+  .feedback-title{
+    display: flex; 
     width: 100%;
-    display: flex;
-    justify-content: space-between;
     height: 98rpx;
+    align-items: center;
     line-height: 98rpx;
+    font-weight: bold;
+    color: #CC9966;
     border-bottom:1rpx solid #f1f1f1;
-   
+    /* margin-left: 23rpx; */
   }
-  .address-info:last-child{
-    border-bottom:none;
+  .feedback-con{
+    height: 300rpx;
+    padding: 10px 5px;
+    /* background-color: rgba(143, 116, 206, 0.5); */
   }
-  .address-info input{
-    height: 100%;
-  }
-  .address-title{
-    flex: 0 0 130rpx;
-    text-align:justify;
-  }
-  .address-title:after{
-    display:inline-block;
-    content:'';
-    width:100%;
-  }
-  .address-content{
-    flex: 1 1 auto;
-    height: 100%;
-    padding-left: 35rpx;
-    border-top:1rpx solid #f1f1f1;
-   
-  }
-  .address-region{
-    display: inline-flex;
-    justify-content: space-between;
-    position: relative;
-  }
-  .address-region-name{
-    width: 450rpx;
-  }
-  .address-region .arrow-right{
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 40rpx;
-  }
-  .address-detail{
-    height: 336rpx;
-    padding-top: 10rpx;
-    line-height: 41rpx;
-  }
-  .address-detail-text{
+  .feedback-detail{
     width: 100%;
     height: 100%;
+    padding-left: 3px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    /* background-color: rgba(143, 116, 206, 0.5); */
   }
-   
-
-
   .img-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 10rpx 35rpx;
+    margin: 0 35rpx;
+    padding: 10rpx 0;
+    /* border-top:1rpx solid #f1f1f1; */
   }
   .one-img {
     position: relative;
@@ -89,39 +60,89 @@ page{
     background-color:#ffffff;
   }
   .close-img {
+    position: absolute;
+    top: 4rpx;
+    right: 4rpx;
     width: 30rpx;
     height: 30rpx;
-    position: absolute;
-    right: 4rpx;
-    top: 4rpx;
   }
-  .choose-localtion {
+  .picker{
+    margin-top: 8px;
+    color: rgb(148, 139, 139);
+  }
+  .bottom-btn{
+    margin-top: 60rpx;
+  }
+  .btn{
+    width: 120px !important;
+    color: #fff;
+    border-radius: 25px;
+    background-color: #b3d869;
+  }
+   /* .feedback-content{
+    flex: 1 1 auto;
+    height: 100%;
+    padding-left: 35rpx;
+    border-top:1rpx solid #f1f1f1;
+  } */
+  /* .cho-img{
+    margin: 18rpx 35rpx;
+    display: flex;
+    font-size: 43rpx;
+  } */
+  /* .address-content{
+    flex: 1 1 auto;
+    height: 100%;
+    padding-left: 35rpx;
+    border-top:1rpx solid #f1f1f1;
+  } */
+  
+/* .address-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 98rpx;
+    line-height: 98rpx;
+    border-bottom:1rpx solid #f1f1f1;
+  } */
+  /* .address-info:last-child{
+    border-bottom:none;
+  } */
+  /* .address-info input{
+    height: 100%;
+  } */
+  /* .address-title{
+    flex: 0 0 130rpx;
+    text-align:justify;
+  }
+  .address-title:after{
+    display:inline-block;
+    content:'';
+    width:100%;
+  } */
+  /* .address-region{
+    display: inline-flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  .address-region-name{
+    width: 450rpx;
+  }
+  .address-region .arrow-right{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 40rpx;
+  } */
+ 
+  /* .choose-localtion {
     margin: 10rpx 35rpx;
     font-size: 43rpx;
     color: rgb(0, 0, 0);
     padding-bottom: 30rpx;
-   
-  }
+  } */
 
-  .address-infop{
-    width: 100%;
-    display: flex; 
-    align-items: center;
-    height: 98rpx;
-    line-height: 98rpx;
-    font-weight: bold;
   
-    color: #CC9966;
-    margin-left: 23rpx;
-    
-    
-  }
 
-  .bottom-btn{
-    margin-top: 60rpx;
-}
 
-.im{
-  width: 60rpx;
-  height: 60rpx;
-}
+  

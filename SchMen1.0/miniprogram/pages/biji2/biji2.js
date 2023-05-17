@@ -19,7 +19,8 @@ Page({
         var that = this;
         const db = wx.cloud.database()
         db.collection("createnote").where({
-            tishi:tishi
+            tishi:tishi,
+            _openid: wx.getStorageSync("openid")
         }).get({
                 success:function(res) {
                     console.log('获取成功！',res.data)

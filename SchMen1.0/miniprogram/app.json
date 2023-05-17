@@ -15,7 +15,8 @@
         "pages/detail1/detail",
         "pages/biji2/biji2",
         "pages/xuyao/xuyao",
-        "pages/yonghu/yonghu"
+        "pages/yonghu/yonghu",
+        "pages/mycount/mycount"
     ],
     "window": {
         "backgroundTextStyle": "light",

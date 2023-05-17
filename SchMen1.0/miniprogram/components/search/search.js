@@ -70,6 +70,7 @@ Component({
     },
     changeSearchList(value){
       db.collection('createnote').where({
+        _openid: wx.getStorageSync("openid"),
         title:db.RegExp({//正则表达
           regexp: value,
           options: 'i'//大小写不敏感

@@ -1,16 +1,20 @@
 // 已检查
 // 未完全优化
-
+import utill from '../utils/utill'
 let speak=''
 let id=''
 const db = wx.cloud.database()
+const _ = db.command;
 Page({
   data: {
    action:[],
    plcaceHolder:'',
    speak:'',
    openid:null,
-   isPubShow:false
+   isPubShow:false,
+   speaklist:[],
+   toReid:0,
+   toNickname:''
   },
 
 
@@ -21,6 +25,7 @@ Page({
       content:"确定删除吗？",
       success(res){
         if(res.confirm==true){
+          db.collection("speak").where({idt:id}).remove()
           db.collection("friends").doc(id).remove()
           .then(res=>{
             wx.showToast({
@@ -45,19 +50,19 @@ Page({
 
  
   time:function(e){
-    console.log('打印第一个'+e ) 
+    // console.log('打印第一个'+e ) 
     var time = Date.now();
-    console.log('打印第一个',time) 
-    console.log(time)        
-    console.log(time - e)
+    // console.log('打印第一个',time) 
+    // console.log(time)        
+    // console.log(time - e)
     var timecha = time - e
 
-    var date1 = new Date(e); //time是你数据的时间戳
-    var year = date1.getFullYear();
-    var month = date1.getMonth() + 1;
-    var date = date1.getDate();
-    var hour = date1.getHours();
-    var mm = date1.getMinutes(); 
+    // var date1 = new Date(e); //time是你数据的时间戳
+    // var year = date1.getFullYear();
+    // var month = date1.getMonth() + 1;
+    // var date = date1.getDate();
+    // var hour = date1.getHours();
+    // var mm = date1.getMinutes(); 
 
     console.log("测试string:"+typeof e);
     
@@ -66,15 +71,15 @@ Page({
       return e
     }
     else if(timecha/1000 <86400){
-      console.log('时间为这三天')
-      let  e =  hour + ':' +mm
-      console.log(e)
-      return e
+      console.log('时间为今天')
+      return utill.formatD(new Date(e))
+      // let  e =  
+      // console.log(e)
     }
     else if(timecha/1000 >86400){
       console.log('时间为以前')
-      let e = month+'-'+date+' '+hour+':'+mm
-      return e
+      return utill.formatM(new Date(e))
+      // let e = 
     }
   },
   // 打开图片
@@ -94,6 +99,7 @@ Page({
       openid:wx.getStorageSync('openid')
     })
     id=options.id
+    console.log(id)
     this.getDetail()
   },
   // 获取点击事件用户的动态
@@ -109,14 +115,29 @@ Page({
           action:list
         })
         // console.log(that.data.action,"action")
-        console.log(that.data.action.speaklist,"kkkkk")
+        // console.log(that.data.action.speaklist,"kkkkk")
+      }
+    })
+    wx.cloud.database().collection('speak').where({idt:id})
+    .orderBy('time','asc').get({
+      success(res){
+        console.log(res,"kun")
+        let talk=res.data
+         for (var i=0 ;i < talk.length ; i++) {  
+            talk[i].time =  that.time(talk[i].time);
+            console.log(talk[i].time,"TALKTIME")
+          }
+        that.setData({
+          speaklist:talk
+        })
       }
     })
   },
  
   // 获取评论信息
   getInputValue(event){
-    speak=this.data.plcaceHolder + event.detail.value  
+    // speak=this.data.plcaceHolder + event.detail.value  
+    speak=event.detail.value  
   },
 
 
@@ -139,19 +160,18 @@ Page({
         })
       }
       else{
-        if(!that.data.action.speaklist){
-          let speaklist=[{
-            nick:nick.nick,
-            openid:wx.getStorageSync('openid'),
-            src:nick.avatarUrl,
-            speak:speak,
-          }]
-          db.collection("friends").doc(id).update({
+        db.collection("speak").add({
             data:{
-              speaklist:speaklist
+              idt:id,
+              nick:nick.nick,
+              openid:wx.getStorageSync('openid'),
+              src:nick.avatarUrl,
+              speak:speak,
+              toReid:that.data.toReid,
+              toNickname:that.data.toNickname,
+              time: Date.now(),
             }
-          })
-          .then(res=>{
+          }).then(res=>{
             that.setData({
               speak:'',
               isPubShow:false
@@ -162,43 +182,66 @@ Page({
               icon:'none'
             })
           })
-        }
-        else{
-          let newspeaklist=that.data.action.speaklist
-          newspeaklist.push({
-            nick:nick.nick,
-            openid:wx.getStorageSync('openid'),
-            src:nick.avatarUrl,
-            speak:speak,
-          })
-          console.log(newspeaklist)
-          db.collection("friends").doc(id).update({
-            data:{
-              speaklist:newspeaklist
-            }
-          })
-          .then(res=>{
-            that.setData({
-              speak:'',
-              isPubShow:false
-            })
-            that.getDetail()
-            wx.showToast({
-              title:'已评论',
-              icon:'none'
-            })
-          })
-        }
+        db.collection("friends").doc(id).update({
+          data:{
+            speaklist:_.inc(1)
+          }
+        })
+        .then(res=>{
+          console.log("成功自增")
+        })
+        // if(!that.data.speaklist){
+        //   let speaklist=[{
+        //     nick:nick.nick,
+        //     openid:wx.getStorageSync('openid'),
+        //     src:nick.avatarUrl,
+        //     speak:speak,
+        //   }]
+        //   db.collection("friends").doc(id).update({
+        //     data:{
+        //       speaklist:speaklist
+        //     }
+        //   })
+          
+        // }
+        // else{
+        //   let newspeaklist=that.data.action.speaklist
+        //   newspeaklist.push({
+        //     nick:nick.nick,
+        //     openid:wx.getStorageSync('openid'),
+        //     src:nick.avatarUrl,
+        //     speak:speak,
+        //   })
+        //   console.log(newspeaklist)
+        //   db.collection("friends").doc(id).update({
+        //     data:{
+        //       speaklist:newspeaklist
+        //     }
+        //   })
+        //   .then(res=>{
+        //     that.setData({
+        //       speak:'',
+        //       isPubShow:false
+        //     })
+        //     that.getDetail()
+        //     wx.showToast({
+        //       title:'已评论',
+        //       icon:'none'
+        //     })
+        //   })
+        // }
     }
   },
 
 
   //回复评论
   huifuComment(event){
-    console.log(event)
+    // console.log(event)
     var index = event.currentTarget.dataset.index
     this.setData({
-      plcaceHolder : '回复' + this.data.action.speaklist[index].nick+':'
+      plcaceHolder : '回复' + this.data.speaklist[index].nick+':',
+      toNickname:this.data.speaklist[index].nick,
+      toReid:1
     })
     if(this.data.isPubShow==false){
       console.log("xiangshi")

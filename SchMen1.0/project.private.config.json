@@ -171,6 +171,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "pages/mycount/mycount",
+                    "pathName": "pages/mycount/mycount",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

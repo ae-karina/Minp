@@ -1,7 +1,7 @@
 
 
 page{
-  background-color: #e8989a;
+  /* background-color: rgb(232, 152, 154,.2); */
 }
 
 
@@ -9,24 +9,85 @@ page{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
   margin: 0 20rpx 20rpx 0;
   align-items: center;
+  background-color: rgba(0,0,0,.5);
 }
-.xqiehuan-box{
-  position: fixed;
-  top: 2rpx;
-  left: 30rpx;
+.input-wrap{
+  margin: 40px 20px  20px;
+  /* border-radius: 20px; */
+  /* background-color: rgba(0,0,0,.1); */
+}
+.input-text {
+  margin: 40rpx auto;
+  width: 90%;
+  height: 300rpx;
+  padding: 20rpx ;
+  background-color: rgb(243, 243, 243);
+  border-radius: 10px;
+}
+.img-wrap {
   display: flex;
-  align-items: center;
-  color: #8a8a8a;
-  border: 2rpx solid #8a8a8a;
-  padding: 6rpx 15rpx 6rpx 6rpx;
-  border-radius: 20rpx;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 30rpx 51rpx;
+}
+.one-img {
+  position: relative;
+  margin: 4rpx 8rpx;
+}
+.img-choose {
+  width: 200rpx;
+  height: 200rpx;
+  border: 0.5px solid #ffffff;
+  background-color: #fafafa;
+}
+.close-img {
+  position: absolute;
+  top: 4rpx;
+  right: 4rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.choose-localtion {
+  margin: 50rpx 40rpx;
+  padding-bottom: 30rpx;
+  color: rgb(90, 90, 90);
+  font-size: 36rpx;
+  border-bottom: 2rpx solid rgb(221, 220, 220);
+}
+.picker{
+  padding-top: 10px;
+  height: 20px;
+}
+.bigbox{
+  display: flex;
+  justify-content:center;
+  margin: 30px 0 20px;
+  width: 100%;
+}
+.btn{
+  width: 50px !important;
+  padding: 0;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  text-align: center;
+  background-color: rgb(255,255,255,.2);
+  border-radius: 25px;
+  /* margin: 10rpx; */
+  /* background-color: #b3d869; */
+}
+.btn-img{
+  width: 50px;
+  height: 50px;
+}
+.bottom{
+  width: 100%;
+  height: 10px;
 }
 
-
-.qiehuan-box{
+/* .qiehuan-box{
   position: fixed;
   top: 2rpx;
   left: 30rpx;
@@ -114,8 +175,21 @@ page{
   justify-content:center;
   margin-top: 20rpx;
 }
+
 .topic{
   height: 10rpx;
 }
 
+ */
 
+ /* .xqiehuan-box{
+  position: fixed;
+  top: 2rpx;
+  left: 30rpx;
+  display: flex;
+  align-items: center;
+  color: #8a8a8a;
+  border: 2rpx solid #8a8a8a;
+  padding: 6rpx 15rpx 6rpx 6rpx;
+  border-radius: 20rpx;
+} */
