@@ -67,8 +67,10 @@
 <!-- 底部 -->
 <view style="height:200rpx" />
 <view class="{{isPubShow?'pub-comment-show':'pub-comment'}}">
-  <view class="pub-left">
-    <input class="pub-input" cursor-spacing="10px" placeholder="{{plcaceHolder}}" bindinput="getInputValue" value="{{speak}}" bindconfirm="publishComment" />
+  <view class="pub">
+    <view class="pub-left">
+      <input class="pub-input" cursor-spacing="10px" placeholder="{{plcaceHolder}}" bindinput="getInputValue" value="{{speak}}" bindconfirm="publishComment" focus="{{isFocus}}" />
+    </view>
+    <view class="pub-button" bindtap="publishComment">发送</view>
   </view>
-  <view class="pub-button" bindtap="publishComment">发送</view>
 </view>

@@ -21,7 +21,7 @@ Page({
         db.collection("createnote").where({
             tishi:tishi,
             _openid: wx.getStorageSync("openid")
-        }).get({
+        }).orderBy('ts','desc').get({
                 success:function(res) {
                     console.log('获取成功！',res.data)
                     that.setData({
@@ -56,7 +56,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+      // this.onLoad()
     },
 
     /**

@@ -128,9 +128,23 @@ Page({
         // })
     },
     add2(){
-        wx.navigateTo({
-            url: '/pages/add2/add2',
+      if(!wx.getStorageSync('message')){//判断是否已登录
+        wx.showModal({
+          title:"未登录",
+          content:"去登录",
+          success(res){
+            if(res.confirm==true){
+              wx.switchTab({   //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+                url:'/pages/my/my',
+              })
+            }
+          }
         })
+      }else{
+          wx.navigateTo({
+              url: '/pages/add2/add2',
+          })
+        }
     },
     // 具体数据是来自event，currentTarget
     // 写好跳转页面的跳转方法和url，实现带参数跳转

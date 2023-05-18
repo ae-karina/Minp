@@ -67,24 +67,33 @@ Page({
       })
     },
 
-    submit(e) {
-    console.log(e, "提交的用户信息");
-    // // let that = this;
-    // if (e.detail.value.nick == "") {
-    //   wx.showToast({
-    //     title: "不能为空",
-    //     icon: "none",
-    //   });
-    // } else {
-    //   wx.getUserProfile({
-    //     desc: "用户完善个人信息", // 声明获取用户个人信息后的用途，后续会展示在弹窗中
-    //     success: (res) => {
-    //       console.log(res);
-    //       console.log("个人信息", res.userInfo);
-    //       this.getUserOpenId(e);
-    //     },
-    //   });
-    // }
+ async submit() {
+  // console.log(e, "提交的用户信息");
+    let time = Date.now();
+    let up= await wx.cloud.uploadFile({
+              cloudPath: "avatar.images/" + time, //文件名字
+              filePath: this.data.avatarUrl, //文件
+            });
+    if (up) {
+      console.log(up);
+      this.setData({
+        avatarUrl: up.fileID,
+      });
+      console.log(this.data.avatarUrl);
+      db.collection('user').where({_openid:wx.getStorageSync('openid')}).update({
+        data: {
+          nick: this.data.nick,
+          avatarUrl:this.data.avatarUrl
+        },success:function (res) {
+            console.log("更改成功"+res),
+            wx.showToast({
+              title: '更改成功！',
+              duration: 1000
+            })
+          },
+        fail: console.error
+      }) 
+    }
   },
     /**
      * 生命周期函数--监听页面隐藏

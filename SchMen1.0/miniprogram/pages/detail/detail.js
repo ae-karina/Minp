@@ -7,14 +7,15 @@ const db = wx.cloud.database()
 const _ = db.command;
 Page({
   data: {
-   action:[],
-   plcaceHolder:'',
-   speak:'',
-   openid:null,
-   isPubShow:false,
-   speaklist:[],
-   toReid:0,
-   toNickname:''
+    action:[],
+    plcaceHolder:'',
+    speak:'',
+    openid:null,
+    isPubShow:false,
+    speaklist:[],
+    toReid:0,
+    toNickname:'',
+    isFocus:false,
   },
 
 
@@ -236,25 +237,26 @@ Page({
 
   //回复评论
   huifuComment(event){
-    // console.log(event)
-    var index = event.currentTarget.dataset.index
-    this.setData({
-      plcaceHolder : '回复' + this.data.speaklist[index].nick+':',
-      toNickname:this.data.speaklist[index].nick,
-      toReid:1
-    })
+      var index = event.currentTarget.dataset.index
+      this.setData({
+        plcaceHolder : '回复' + this.data.speaklist[index].nick+':',
+        toNickname:this.data.speaklist[index].nick,
+        toReid:1
+      })
     if(this.data.isPubShow==false){
       console.log("xiangshi")
        this.setData({
-        isPubShow:true
+        isPubShow:true,
+        isFocus:true
       })
       console.log(this.data.isPubShow)
     }
      else{
-       console.log(this.data.isPubShow)
+      console.log(this.data.isPubShow)
       console.log("quxiao")
       this.setData({
-        isPubShow:false
+        isPubShow:false,
+        isFocus:false,
       })
      }
   },
@@ -281,19 +283,24 @@ Page({
       console.log("xiangshi")
        this.setData({
         isPubShow:true,
-        plcaceHolder :''
+        plcaceHolder :'',
+        toNickname:'',
+        toReid:0,
+        isFocus:true,
       })
       console.log(this.data.isPubShow)
     }
      else{
-       console.log(this.data.isPubShow)
+      console.log(this.data.isPubShow)
       console.log("quxiao")
       this.setData({
         isPubShow:false,
-        plcaceHolder :''
+        plcaceHolder :'',
+        toNickname:'',
+        toReid:0,
+        isFocus:false
       })
      }
-  
     // console.log("llll")
   }
 

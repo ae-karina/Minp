@@ -34,9 +34,23 @@ Page({
     
     },
     onNewItem:function(e){
+      if(!wx.getStorageSync('message')){//判断是否已登录
+        wx.showModal({
+          title:"未登录",
+          content:"去登录",
+          success(res){
+            if(res.confirm==true){
+              wx.switchTab({   //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+                url:'/pages/my/my',
+              })
+            }
+          }
+        })
+      }else{
         wx.navigateTo({
             url: '../create/create'
           })
+      }
     },
     onEditItem:function(e){
         // console.log(e.currentTarget.dataset.nid)
@@ -67,7 +81,7 @@ Page({
 
     async onLoad(){
         const db = wx.cloud.database()
-        let count =await db.collection("notes").where({
+        let count =await db.collection("createnote").where({
              _openid: wx.getStorageSync('openid')|| [] 
         }).count()
         count = count.total

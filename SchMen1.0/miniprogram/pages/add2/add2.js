@@ -169,19 +169,19 @@ Page({
       let ni=wx.getStorageSync('message')
       // let nick=ni.nick
       // let src=ni.avatarUrl
-      if(!wx.getStorageSync('message')){//判断是否已登录
-        wx.showModal({
-          title:"未登录",
-          content:"去登录",
-          success(res){
-            if(res.confirm==true){
-              wx.switchTab({   //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
-                url:'/pages/my/my',
-              })
-            }
-          }
-        })
-      }else{
+      // if(!wx.getStorageSync('message')){//判断是否已登录
+      //   wx.showModal({
+      //     title:"未登录",
+      //     content:"去登录",
+      //     success(res){
+      //       if(res.confirm==true){
+      //         wx.switchTab({   //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+      //           url:'/pages/my/my',
+      //         })
+      //       }
+      //     }
+      //   })
+      // }else{
           let that=this
           if (e.detail.value.daiban == '') {
             wx.showToast({
@@ -238,7 +238,7 @@ Page({
               }    
             })  
           }
-        }
+        // }
     },
 
 

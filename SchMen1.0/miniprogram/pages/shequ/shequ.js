@@ -153,6 +153,7 @@ Page({
   //   }).get()
           
   // },
+
   async changedata(){//检测到变化更新数据库
     let res= await db.collection("friends").where({ _openid: wx.getStorageSync("openid") })
     .update({
@@ -161,18 +162,39 @@ Page({
         bosstoursc: this.data.a,
       },
     });
-    let sps= await db.collection("speak").where({ _openid: wx.getStorageSync("openid") })
-    .update({
-      data: {
-        nick: this.data.s,
-        src: this.data.a,
-        toNickname:this.data.s,
-      },
-    });
-    if(res&sps){
-      this.getData(0)
-    }
-},
+    if(res){
+      // 查询集合中符合条件的记录
+        let res1= await db.collection('speak').where({ _openid: wx.getStorageSync("openid") }).get()
+        if(res1){
+          const record = res1.data[0]; // 获取第一条符合条件的记录
+
+          let res2= await db.collection('speak').where({toNickname: record.nick})
+            .update({
+              data: {
+                toNickname:this.data.s,
+              }
+            })
+
+          if(res2){
+            db.collection("speak").where({ _openid: wx.getStorageSync("openid") })
+              .update({
+                data: {
+                  nick: this.data.s,
+                  src: this.data.a,
+                },
+            });
+          }
+        }
+      }  
+  } ,
+
+          
+          
+       
+       
+    
+    
+
 
  load(){
   this.watch()
@@ -182,6 +204,15 @@ Page({
     }, 3000)
 
  },
+   // 检查是否已存在相同的记录
+isRecordExist(array, record) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]._id === record._id) {
+      return true;
+    }
+  }
+  return false;
+},
   watch(){//监控数据变化
     var that=this
     db.collection("user")
