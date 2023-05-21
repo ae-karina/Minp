@@ -205,14 +205,14 @@ Page({
 
  },
    // 检查是否已存在相同的记录
-isRecordExist(array, record) {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i]._id === record._id) {
-      return true;
-    }
-  }
-  return false;
-},
+// isRecordExist(array, record) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i]._id === record._id) {
+//       return true;
+//     }
+//   }
+//   return false;
+// },
   watch(){//监控数据变化
     var that=this
     db.collection("user")

@@ -56,10 +56,10 @@ Page({
       var month=e.detail.month
       var day=e.detail.day
 
-      var changeday="dayStyle[1].day"
-      var changeBg="dayStyle[1].background"
+      var changeday="dayStyle[1].day"//动态修改dayStyle里面指定某个元素的值
+      var changeBg="dayStyle[1].background"//重点在这里，组合出一个字符串
       this.setData({
-          [changeday]: day,
+          [changeday]: day,//用中括号把变量括起来即可
           [changeBg]: "#e8989a",
           day:day,
           month:month,
