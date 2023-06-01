@@ -183,6 +183,7 @@ Page({
                   src: this.data.a,
                 },
             });
+            this.getData(0)
           }
         }
       }  
@@ -196,14 +197,14 @@ Page({
     
 
 
- load(){
-  this.watch()
-    
-      setTimeout(() => {
-        this.changedata()
+  load(){
+    this.watch()
+      
+    setTimeout(() => {
+      this.changedata()
     }, 3000)
 
- },
+  },
    // 检查是否已存在相同的记录
 // isRecordExist(array, record) {
 //   for (let i = 0; i < array.length; i++) {
