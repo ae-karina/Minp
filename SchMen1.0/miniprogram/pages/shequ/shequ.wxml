@@ -16,9 +16,9 @@
           <text class="message-text" bindtap="toDetail" data-id="{{item}}">{{item.content}}</text>
           <!-- 图片布局 -->
           <view class="imags-wrap" data-id="{{item._id}}">
-            <!-- 指定数组当前元素的变量名 wx:for用在block标签上，以渲染一个包含多节点的结构块 -->
+            <!-- 指定数组当前元素的变量名 wx:for用在block标签上，以渲染一个包含多节点的结构块  data-index="{{index}}" -->
             <block wx:if="{{item.contentsrc.length>0}}" wx:key="index" wx:for="{{item.contentsrc}}" wx:for-item="imgItem" wx:key="index">
-              <image src="{{imgItem}}" class="image-2-3" data-src="{{imgItem}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg" />
+              <image src="{{imgItem}}" class="image-2-3" data-src="{{imgItem}}" data-index="{{item.contentsrc}}" mode="aspectFill" bindtap="previewImg" />
             </block>
           </view>
           <view class="allbottom" data-id="{{item._id}}">

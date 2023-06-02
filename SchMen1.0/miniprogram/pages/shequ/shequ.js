@@ -292,9 +292,10 @@ Page({
   previewImg(event){
     var that = this;
     console.log(event,"imgla")
+    console.log(that.data.dataList,"datalist")
     wx.previewImage({
       current: event.currentTarget.dataset.src,// 当前显示图片的http链接
-      urls: that.data.dataList[event.currentTarget.dataset.index].contentsrc,// 需要预览的图片http链接列表
+      urls: event.currentTarget.dataset.index,// 需要预览的图片http链接列表
     })
   },
   

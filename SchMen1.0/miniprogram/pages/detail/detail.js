@@ -67,7 +67,7 @@ Page({
 
     console.log("测试string:"+typeof e);
     
-    //  根据自己需要通过判断timecha/1000的区间值来进行return赋值
+    //  通过判断timecha/1000的区间值来进行return赋值
     if( typeof e == 'string'){
       return e
     }

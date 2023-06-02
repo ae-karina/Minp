@@ -209,6 +209,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+  
+  shequ() {
+    wx.navigateTo({
+      url: "/pages/shequ/shequ",
+    });
+  },
 
   meidea() {
     wx.navigateTo({
@@ -216,22 +222,12 @@ Page({
     });
   },
 
-  shequ() {
-    wx.navigateTo({
-      url: "/pages/shequ/shequ",
-    });
-  },
-
-  xuyao() {
-    wx.navigateTo({
-      url: "/pages/xuyao/xuyao",
-    });
-  },
   mycount() {
     wx.navigateTo({
       url: "/pages/mycount/mycount",
     });
   },
+  
   logout() {
     this.setData({
       nick: "",
@@ -240,7 +236,12 @@ Page({
     });
     wx.clearStorageSync();
   },
-
+  
+  // xuyao() {
+  //   wx.navigateTo({
+  //     url: "/pages/xuyao/xuyao",
+  //   });
+  // },
   //管理员进入
   // guan() {
   //   wx.cloud
