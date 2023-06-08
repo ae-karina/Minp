@@ -4,10 +4,10 @@ page {
   background-color: rgb(238, 238, 238);
 }
 
-
+/* 
 .user {
-  /* background-color: #fde3d5; */
-}
+  background-color: #fde3d5;
+} */
 /* 登录模块 */
 .user-login {
   display: flex;
@@ -21,7 +21,7 @@ page {
   /* align-items: center; */
   /* color: rgb(250, 253, 253); */
 }
-.avatar-choose{
+.avatar-choose {
   margin: 280rpx 0 60rpx 0;
   width: 164rpx !important;
   height: 160rpx;
@@ -30,7 +30,7 @@ page {
   background-color: #d8d0d2;
   /* line-height: 140rpx; */
 }
-.avatar-login{
+.avatar-login {
   width: 160rpx;
   height: 160rpx;
   border-radius: 70rpx;
@@ -40,7 +40,7 @@ page {
   text-align: center;
   /* background-color: rgba(0,0,0,.5); */
 }
-.log-btn{
+.log-btn {
   padding: 0;
   width: 360rpx !important;
   height: 100rpx;
@@ -108,7 +108,7 @@ page {
   line-height: 51px;
   background-color: #eeeeee;
 }
-.btn-logout{
+.btn-logout {
   padding: 0;
   width: 200rpx !important;
   height: 90rpx;
