@@ -32,7 +32,7 @@ Page({
         .get();
       if (rescheck) {
         console.log(rescheck);
-        if (rescheck.data.length == 0) {
+        if (rescheck.data.length == 0) { //原来数据库没有
           wx.showLoading({
             title: "登录中",
           });

@@ -14,22 +14,22 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        tishi=options.tishi
-        console.log(options,"ooo")
-        var that = this;
-        const db = wx.cloud.database()
-        db.collection("createnote").where({
-            tishi:tishi,
-            _openid: wx.getStorageSync("openid")
-        }).orderBy('ts','desc').get({
-                success:function(res) {
-                    console.log('获取成功！',res.data)
-                    that.setData({
-                        lines: res.data,
-                        tishi:tishi
-                    })
-                }
-            })    
+      tishi=options.tishi
+      console.log(options,"ooo")
+      var that = this;
+      const db = wx.cloud.database()
+      db.collection("createnote").where({
+          tishi:tishi,
+          _openid: wx.getStorageSync("openid")
+      }).orderBy('ts','desc').get({
+              success:function(res) {
+                  console.log('获取成功！',res.data)
+                  that.setData({
+                      lines: res.data,
+                      tishi:tishi
+                  })
+              }
+          })    
     },
 
     /**

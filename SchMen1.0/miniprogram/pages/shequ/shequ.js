@@ -41,7 +41,7 @@ Page({
     if( typeof e == 'string'){
       return e
     }else if(timecha/1000 <86400){
-      console.log('时间为这三天')  //不是一天吗
+      console.log('时间为今天')  
       return utill.formatD(new Date(e))
       
     }else if(timecha/1000 >86400){

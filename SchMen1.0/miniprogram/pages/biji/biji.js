@@ -53,10 +53,10 @@ Page({
       }
     },
     onEditItem:function(e){
-        // console.log(e.currentTarget.dataset.nid)
-        wx.navigateTo({
-            url: '../edit/edit?edkey=' + e.currentTarget.dataset.nid
-          })
+      // console.log(e.currentTarget.dataset.nid)
+      wx.navigateTo({
+          url: '../edit/edit?edkey=' + e.currentTarget.dataset.nid
+        })
     },
 
 

@@ -40,7 +40,7 @@ Page({
         var changeBg="dayStyle[1].background"
         this.setData({
             [changeday]: day,
-            [changeBg]: "#e8989a",//？
+            [changeBg]: "#e8989a",
             day:day,
             month:month,
             year:year,
@@ -57,7 +57,7 @@ Page({
                 that.setData({ //通过setData，将res中的数据存入到note数组当中
                   note:res.data          
                 }),
-                console.log(res.data,'99')   ///打印看一下  
+                console.log(res.data,'99') 
               }
         })
     },

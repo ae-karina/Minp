@@ -73,11 +73,11 @@ async syncData () {
   },
   // 总数
   async getTodosCount(){
-      let res = await ydb.collection('notes').where({
-          _openid: this.data.openid
-      }).count();
-      // console.log(res.total,"总数")
-      return res.total;
+    let res = await ydb.collection('notes').where({
+        _openid: this.data.openid
+    }).count();
+    // console.log(res.total,"总数")
+    return res.total;
   },
   // 完成数
   async getTodosCompletedCount(){
