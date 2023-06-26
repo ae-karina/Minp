@@ -11,10 +11,13 @@
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
 ## 实现页面
+![日程显示](https://github.com/ae-karina/Minp/assets/119292856/95fbeffb-db70-45cf-9ae0-f0b019a14bdd)
+
+![点击日程](https://github.com/ae-karina/Minp/assets/119292856/62c64b56-4536-4feb-b491-a30bd62e0d9d)
 
 ![日程详细](https://github.com/ae-karina/Minp/assets/119292856/f957d806-4382-4a59-83c0-6af227d3eabc)
 
-![日程显示](https://github.com/ae-karina/Minp/assets/119292856/95fbeffb-db70-45cf-9ae0-f0b019a14bdd)
+![提示信息](https://github.com/ae-karina/Minp/assets/119292856/f9ed5140-b9fd-4bf5-8b0e-edcf2177a272)
 
 ![任务完成率](https://github.com/ae-karina/Minp/assets/119292856/c4ce5f42-4432-4952-ba28-254c973ff4bf)
 
@@ -46,16 +49,3 @@
 
 ![账户设置](https://github.com/ae-karina/Minp/assets/119292856/909558ba-1ea9-4e83-ab92-f7d83cd2c250)
 
-
-
-
-
-
-
-
-
-![笔记页面](https://github.com/ae-karina/Minp/assets/119292856/6c5102e5-a942-4102-bd57-3e3103c3a144)
-
-
-![Uploading 搜索详情.png…]()
-![Uploading 社区生活.png…]()
