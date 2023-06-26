@@ -10,3 +10,8 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
+## 实现页面
+
+
+![笔记页面](https://github.com/ae-karina/Minp/assets/119292856/6c5102e5-a942-4102-bd57-3e3103c3a144)
+![Uploading 点击日程.png…]()
